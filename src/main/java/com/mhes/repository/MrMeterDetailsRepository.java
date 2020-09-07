@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package com.mhes.repository;
+
+import com.mhes.domain.MrMeterDetails;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+import java.util.List;
+
+/**
+ * @author SureshKumar
+ *
+ */
+@Repository
+@Transactional
+public interface MrMeterDetailsRepository extends JpaRepository<MrMeterDetails, Long>{
+
+	//List<MrMeterDetails> findMrMeterDetailsByMeterSerialNumberAndManufactureAutoIdAndCompanyAutoId(String meterSerialNumber, int manufactureAutoId, int companyAutoId);
+}
