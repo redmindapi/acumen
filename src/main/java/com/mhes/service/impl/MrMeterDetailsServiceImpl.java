@@ -36,8 +36,8 @@ public class MrMeterDetailsServiceImpl implements MrMeterDetailsService{
 	}
 
 	@Override
-	public MrMeterDetails save(MrMeterDetails employee) {
-		return mrMeterDetailsRepository.save(employee);
+	public MrMeterDetails save(MrMeterDetails mrMeterDetails) {
+		return mrMeterDetailsRepository.save(mrMeterDetails);
 	}
 
 }

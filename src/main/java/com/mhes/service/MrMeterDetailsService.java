@@ -15,5 +15,5 @@ public interface MrMeterDetailsService {
 
 	//List<MrMeterDetails> findMrMeterDetailsByMeterSerialNumberAndManufactureAutoIdAndCompanyAutoId(String meterSerialNumber, int manufactureAutoId, int companyAutoId);
     List<MrMeterDetails> findAll();
-    MrMeterDetails save(MrMeterDetails employee);
+    MrMeterDetails save(MrMeterDetails mrMeterDetails);
 }
