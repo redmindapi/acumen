@@ -17,7 +17,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "mrmeterdetails")
 @JsonAutoDetect
-public class MrMeterDetails implements Serializable{
+public class MrMeterDetails implements Serializable {
 
 	/**
 	 * 
