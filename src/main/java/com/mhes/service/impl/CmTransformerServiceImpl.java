@@ -27,13 +27,13 @@ public class CmTransformerServiceImpl implements CmTransformerService {
 	}
 
 	@Override
-	public List<CmTransformer> findByTransformerName(String transformerName) {
+	public List<Object> findByTransformerName(String transformerName) {
 
 		return cmTransformerRepository.findByTransformerName(transformerName);
 	}
 
 	@Override
-	public List<CmTransformer> findByCirNameDivNameSubDivNameSecNameTownNameFeederName(long circleAutoid,
+	public List<Object> findByCirNameDivNameSubDivNameSecNameTownNameFeederName(long circleAutoid,
 			long divisionAutoid, long subdivisionAutoid, long sectionAutoid, long townAutoid, long substationAutoid,
 			long feederAutoid) {
 

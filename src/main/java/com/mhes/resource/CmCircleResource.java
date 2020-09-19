@@ -29,8 +29,8 @@ public class CmCircleResource {
 	}
 
 	@GetMapping("/getCircleName")
-	public ResponseEntity<List<CmCircle>> getCircleNameBySearch(@RequestParam String circleName) {
-		List<CmCircle> cmCircleDetails = cmCircleService.findByCircleName(circleName);
+	public ResponseEntity<List<Object>> getCircleNameBySearch(@RequestParam String circleName) {
+		List<Object> cmCircleDetails = cmCircleService.findByCircleName(circleName);
 		return ResponseEntity.ok().body(cmCircleDetails);
 	}
 }

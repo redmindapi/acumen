@@ -30,17 +30,17 @@ public class CmSubStationResource {
 	}
 
 	@GetMapping("/getSubStationName")
-	public ResponseEntity<List<CmSubStation>> gettSubStationName(@RequestParam String subStationName) {
-		List<CmSubStation> cmSubStationName = cmSubStationService.findBySubStationName(subStationName);
+	public ResponseEntity<List<Object>> gettSubStationName(@RequestParam String subStationName) {
+		List<Object> cmSubStationName = cmSubStationService.findBySubStationName(subStationName);
 		return ResponseEntity.ok().body(cmSubStationName);
 	}
 
 	@GetMapping("/getSubStationNameByCirIdDivIdSubDivIdSecIdTownId")
-	public ResponseEntity<List<CmSubStation>> gettSubStationNameByCircleAutoidAndDivisonAnSubDivisionAndSectionAndTown(
+	public ResponseEntity<List<Object>> gettSubStationNameByCircleAutoidAndDivisonAnSubDivisionAndSectionAndTown(
 			@RequestParam int circleAutoid, @RequestParam int divisionAutoid, @RequestParam int subdivisionAutoid,
 			@RequestParam int sectionAutoid, @RequestParam int townAutoid) {
 
-		List<CmSubStation> cmSubStationName = cmSubStationService
+		List<Object> cmSubStationName = cmSubStationService
 				.findByCirNameAndDivNameAndSubDivNameAndSecNameAndTownName(circleAutoid, divisionAutoid,
 						subdivisionAutoid, sectionAutoid, townAutoid);
 		return ResponseEntity.ok().body(cmSubStationName);

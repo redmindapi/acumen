@@ -18,11 +18,11 @@ import com.mhes.domain.CmSubStation;
 @Transactional
 public interface CmSubStationRepository extends JpaRepository<CmSubStation, Long> {
 
-	@Query("from CmSubStation where subStationName LIKE %:subStationName%")
-	List<CmSubStation> findBySubStationName(String subStationName);
+	@Query("select autoId ,subStationName   from CmSubStation where subStationName LIKE %:subStationName%")
+	List<Object> findBySubStationName(String subStationName);
 
-	@Query("from CmSubStation where circleAutoid =:circleAutoid and divisionAutoid=:divisionAutoid and subdivisionAutoid=:subdivisionAutoid and sectionAutoid=:sectionAutoid and townAutoid=:townAutoid")
-	List<CmSubStation> findByCirNameAndDivNameAndSubDivNameAndSecNameAndTownName(long circleAutoid, long divisionAutoid,
+	@Query("select autoId ,subStationName  from CmSubStation where circleAutoid =:circleAutoid and divisionAutoid=:divisionAutoid and subdivisionAutoid=:subdivisionAutoid and sectionAutoid=:sectionAutoid and townAutoid=:townAutoid")
+	List<Object> findByCirNameAndDivNameAndSubDivNameAndSecNameAndTownName(long circleAutoid, long divisionAutoid,
 			long subdivisionAutoid, long sectionAutoid, long townAutoid);
 
 }

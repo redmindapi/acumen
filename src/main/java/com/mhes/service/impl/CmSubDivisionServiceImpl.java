@@ -26,19 +26,19 @@ public class CmSubDivisionServiceImpl implements CmSubDivisionService {
 	}
 
 	@Override
-	public List<CmSubDivision> findBySubDivisionName(String subdivisionName) {
+	public List<Object> findBySubDivisionName(String subdivisionName) {
 
 		return cmSubDivisionRepository.findBySubDivisionName(subdivisionName);
 	}
 
 	@Override
-	public List<CmSubDivision> findByCircleNameAndDivisionName(long circleAutoid, long divisionAutoid) {
+	public List<Object> findByCircleNameAndDivisionName(long circleAutoid, long divisionAutoid) {
 
 		return cmSubDivisionRepository.findByCircleNameAndDivisionName(circleAutoid, divisionAutoid);
 	}
 
 	@Override
-	public List<CmSubDivision> findByDivisionName(long divisionAutoid) {
+	public List<Object> findByDivisionName(long divisionAutoid) {
 
 		return cmSubDivisionRepository.findByDivisionName(divisionAutoid);
 	}

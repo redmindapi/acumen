@@ -34,6 +34,12 @@ public class MeterResource {
         return ResponseEntity.ok().body(mrMeterDetails);
 	}
 	
+	@GetMapping("/getAllMeterSerialNumber")
+    public ResponseEntity<List<Object>> getAllMeterSerialNumber(@RequestParam String meterSerialnumber) {
+		List<Object> mrMeterDetails = mrMeterDetailsService.findByMrMeterDetails(meterSerialnumber);
+        return ResponseEntity.ok().body(mrMeterDetails);
+	}
+
 	/*
 	 * @RequestMapping(value =
 	 * "/getMeterDetails/{serialNumber}/{manufactureAutoId}/{companyAutoId}") public

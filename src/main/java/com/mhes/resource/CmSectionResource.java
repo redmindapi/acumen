@@ -30,15 +30,15 @@ public class CmSectionResource {
 	}
 
 	@GetMapping("/getSectionName")
-	public ResponseEntity<List<CmSection>> getSectionName(@RequestParam String sectionName) {
-		List<CmSection> cmSectionNames = cmSectionService.findBySectionName(sectionName);
+	public ResponseEntity<List<Object>> getSectionName(@RequestParam String sectionName) {
+		List<Object> cmSectionNames = cmSectionService.findBySectionName(sectionName);
 		return ResponseEntity.ok().body(cmSectionNames);
 	}
 
 	@GetMapping("/getSectionNameByCircleIdAndDivisionIdAndSubDivisionId")
-	public ResponseEntity<List<CmSection>> getSectionNameByCircleIdAndDivisionIdAndSubDivisionId(@RequestParam long circleAutoid,
+	public ResponseEntity<List<Object>> getSectionNameByCircleIdAndDivisionIdAndSubDivisionId(@RequestParam long circleAutoid,
 			@RequestParam long divisionAutoid, @RequestParam long subdivisionAutoid) {
-		List<CmSection> cmSectionNames = cmSectionService.findByCircleNameAndDivisionName(circleAutoid, divisionAutoid,
+		List<Object> cmSectionNames = cmSectionService.findByCircleNameAndDivisionName(circleAutoid, divisionAutoid,
 				subdivisionAutoid);
 		return ResponseEntity.ok().body(cmSectionNames);
 	}

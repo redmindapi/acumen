@@ -26,13 +26,13 @@ public class CmSectionServiceImpl implements CmSectionService {
 	}
 
 	@Override
-	public List<CmSection> findBySectionName(String sectionName) {
+	public List<Object> findBySectionName(String sectionName) {
 
 		return cmSectionRepository.findBySectionName(sectionName);
 	}
 
 	@Override
-	public List<CmSection> findByCircleNameAndDivisionName(long circleAutoid, long divisionAutoid,
+	public List<Object> findByCircleNameAndDivisionName(long circleAutoid, long divisionAutoid,
 			long subdivisionAutoid) {
 
 		return cmSectionRepository.findByCircleNameAndDivisionNameAndSubDivisionName(circleAutoid, divisionAutoid,

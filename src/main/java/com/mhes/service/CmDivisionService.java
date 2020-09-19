@@ -12,8 +12,8 @@ import com.mhes.domain.CmDivision;
 public interface CmDivisionService {
 	List<CmDivision> findAll();
 
-	List<CmDivision> findByDivisionName(String divisionName);
+	List<Object> findByDivisionName(String divisionName);
 
-	List<CmDivision> findDivisionNameBycircleAutoid(long circleAutoid);
+	List<Object> findDivisionNameBycircleAutoid(long circleAutoid);
 
 }

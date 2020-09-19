@@ -29,16 +29,16 @@ public class CmFeederResource {
 	}
 
 	@GetMapping("/getFeederName")
-	public ResponseEntity<List<CmFeeder>> getFeederName(@RequestParam String feederName) {
-		List<CmFeeder> cmFeederName = cmFeederService.findByFeederName(feederName);
+	public ResponseEntity<List<Object>> getFeederName(@RequestParam String feederName) {
+		List<Object> cmFeederName = cmFeederService.findByFeederName(feederName);
 		return ResponseEntity.ok().body(cmFeederName);
 	}
 
 	@GetMapping("/getFeederNameByCirIdDivIdSubDivIdSecIdTownIdSubStatId")
-	public ResponseEntity<List<CmFeeder>> getFeederNameByCicleIdAndDivIdAndSubDivIdAndSecIdAndTownIdAndSubStatId(
+	public ResponseEntity<List<Object>> getFeederNameByCicleIdAndDivIdAndSubDivIdAndSecIdAndTownIdAndSubStatId(
 			@RequestParam long circleAutoid, @RequestParam int divisionAutoid, @RequestParam long subdivisionAutoid,
 			@RequestParam long sectionAutoid, @RequestParam long townAutoid, @RequestParam long substationAutoid) {
-		List<CmFeeder> cmFeederName = cmFeederService.findByCirNameDivNameSubDivNameSecNameTownName(circleAutoid,
+		List<Object> cmFeederName = cmFeederService.findByCirNameDivNameSubDivNameSecNameTownName(circleAutoid,
 				divisionAutoid, subdivisionAutoid, sectionAutoid, townAutoid, substationAutoid);
 		return ResponseEntity.ok().body(cmFeederName);
 

@@ -26,13 +26,13 @@ public class CmTownServiceImpl implements CmTownService {
 	}
 
 	@Override
-	public List<CmTown> findById(String townName) {
+	public List<Object> findById(String townName) {
 
 		return cmTownRepository.findByTownName(townName);
 	}
 
 	@Override
-	public List<CmTown> findByCircleNameAndDivisionNameAndSubDivisionNameAndSectionName(long circleAutoid,
+	public List<Object> findByCircleNameAndDivisionNameAndSubDivisionNameAndSectionName(long circleAutoid,
 			long divisionAutoid, long subdivisionAutoid, long sectionAutoid) {
 
 		return cmTownRepository.findByCirNameAndDivNameAndSubDivNameAndSecName(circleAutoid, divisionAutoid,

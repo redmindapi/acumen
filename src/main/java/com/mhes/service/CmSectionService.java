@@ -12,8 +12,8 @@ import com.mhes.domain.CmSection;
 public interface CmSectionService {
 	List<CmSection> findAll();
 
-	List<CmSection> findBySectionName(String sectionName);
+	List<Object> findBySectionName(String sectionName);
 
-	List<CmSection> findByCircleNameAndDivisionName(long circleAutoid, long divisionAutoid, long subdivisionAutoid);
+	List<Object> findByCircleNameAndDivisionName(long circleAutoid, long divisionAutoid, long subdivisionAutoid);
 
 }

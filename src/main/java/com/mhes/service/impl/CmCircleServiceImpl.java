@@ -26,7 +26,7 @@ public class CmCircleServiceImpl implements CmCircleService {
 	}
 
 	@Override
-	public List<CmCircle> findByCircleName(String circleName) {
+	public List<Object> findByCircleName(String circleName) {
 
 		return cmCircleRepository.findByCircleName(circleName);
 	}

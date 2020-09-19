@@ -27,12 +27,12 @@ public class CmFeederServiceImpl implements CmFeederService {
 	}
 
 	@Override
-	public List<CmFeeder> findByFeederName(String feederName) {
+	public List<Object> findByFeederName(String feederName) {
 		return cmFeederRepository.findByFeederName(feederName);
 	}
 
 	@Override
-	public List<CmFeeder> findByCirNameDivNameSubDivNameSecNameTownName(long circleAutoid, long divisionAutoid,
+	public List<Object> findByCirNameDivNameSubDivNameSecNameTownName(long circleAutoid, long divisionAutoid,
 			long subdivisionAutoid, long sectionAutoid, long townAutoid, long substationAutoid) {
 
 		return cmFeederRepository.findByCirNameDivNameSubDivNameSecNameTownName(circleAutoid, divisionAutoid,

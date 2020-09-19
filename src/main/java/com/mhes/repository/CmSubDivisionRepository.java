@@ -18,12 +18,12 @@ import com.mhes.domain.CmSubDivision;
 @Transactional
 public interface CmSubDivisionRepository extends JpaRepository<CmSubDivision, Long> {
 
-	@Query("from CmSubDivision where subdivisionName LIKE %:subdivisionName%")
-	List<CmSubDivision> findBySubDivisionName(String subdivisionName);
+	@Query("select autoId,subdivisionName from CmSubDivision where subdivisionName LIKE %:subdivisionName%")
+	List<Object> findBySubDivisionName(String subdivisionName);
 
-	@Query("from CmSubDivision where circleAutoid =:circleAutoid and divisionAutoid=:divisionAutoid")
-	List<CmSubDivision> findByCircleNameAndDivisionName(long circleAutoid, long divisionAutoid);
+	@Query("select autoId,subdivisionName from CmSubDivision where circleAutoid =:circleAutoid and divisionAutoid=:divisionAutoid")
+	List<Object> findByCircleNameAndDivisionName(long circleAutoid, long divisionAutoid);
 
-	@Query("from CmSubDivision where  divisionAutoid=:divisionAutoid")
-	List<CmSubDivision> findByDivisionName(long divisionAutoid);
+	@Query("select autoId,subdivisionName from CmSubDivision where  divisionAutoid=:divisionAutoid")
+	List<Object> findByDivisionName(long divisionAutoid);
 }

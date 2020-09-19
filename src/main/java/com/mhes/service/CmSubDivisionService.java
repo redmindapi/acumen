@@ -13,9 +13,9 @@ public interface CmSubDivisionService {
 
 	List<CmSubDivision> findAll();
 
-	public List<CmSubDivision> findBySubDivisionName(String subdivisionName);
+	public List<Object> findBySubDivisionName(String subdivisionName);
 
-	List<CmSubDivision> findByCircleNameAndDivisionName(long circleAutoid, long divisionAutoid);
+	List<Object> findByCircleNameAndDivisionName(long circleAutoid, long divisionAutoid);
 
-	List<CmSubDivision> findByDivisionName(long divisionAutoid);
+	List<Object> findByDivisionName(long divisionAutoid);
 }

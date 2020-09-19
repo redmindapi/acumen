@@ -29,17 +29,17 @@ public class CmTransformerResource {
 	}
 
 	@GetMapping("/getTransformerName")
-	public ResponseEntity<List<CmTransformer>> getTransformerName(@RequestParam String transformerName) {
-		List<CmTransformer> cmTransformName = cmTransformerService.findByTransformerName(transformerName);
+	public ResponseEntity<List<Object>> getTransformerName(@RequestParam String transformerName) {
+		List<Object> cmTransformName = cmTransformerService.findByTransformerName(transformerName);
 		return ResponseEntity.ok().body(cmTransformName);
 	}
 
 	@GetMapping("/getTransformerNameByCirIdDivIdSubDivIdSecIdTownIdSubStatIdFeederId")
-	public ResponseEntity<List<CmTransformer>> getTransformerNameByCirIdDivIdSubDivIdSecIdTownIdSubStatIdFeederId(
+	public ResponseEntity<List<Object>> getTransformerNameByCirIdDivIdSubDivIdSecIdTownIdSubStatIdFeederId(
 			@RequestParam long circleAutoid, @RequestParam long divisionAutoid, @RequestParam long subdivisionAutoid,
 			@RequestParam long sectionAutoid, @RequestParam long townAutoid, @RequestParam long substationAutoid,
 			@RequestParam long feederAutoid) {
-		List<CmTransformer> cmTransformName = cmTransformerService
+		List<Object> cmTransformName = cmTransformerService
 				.findByCirNameDivNameSubDivNameSecNameTownNameFeederName(circleAutoid, divisionAutoid,
 						subdivisionAutoid, sectionAutoid, townAutoid, substationAutoid, feederAutoid);
 		return ResponseEntity.ok().body(cmTransformName);

@@ -18,10 +18,10 @@ import com.mhes.domain.CmSection;
 @Transactional
 public interface CmSectionRepository extends JpaRepository<CmSection, Long> {
 
-	@Query("from CmSection where sectionName LIKE %:sectionName%")
-	public List<CmSection> findBySectionName(String sectionName);
+	@Query("select autoId,sectionName from CmSection where sectionName LIKE %:sectionName%")
+	public List<Object> findBySectionName(String sectionName);
 
-	@Query("from CmSection where circleAutoid =:circleAutoid and divisionAutoid=:divisionAutoid and subdivisionAutoid=:subdivisionAutoid")
-	List<CmSection> findByCircleNameAndDivisionNameAndSubDivisionName(long circleAutoid, long divisionAutoid,
+	@Query("select autoId,sectionName from CmSection where circleAutoid =:circleAutoid and divisionAutoid=:divisionAutoid and subdivisionAutoid=:subdivisionAutoid")
+	List<Object> findByCircleNameAndDivisionNameAndSubDivisionName(long circleAutoid, long divisionAutoid,
 			long subdivisionAutoid);
 }

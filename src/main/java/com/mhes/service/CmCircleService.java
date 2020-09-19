@@ -13,5 +13,5 @@ public interface CmCircleService {
 
 	List<CmCircle> findAll();
 
-	public List<CmCircle> findByCircleName(String circleName);
+	public List<Object> findByCircleName(String circleName);
 }

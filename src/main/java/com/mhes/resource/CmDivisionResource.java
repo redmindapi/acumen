@@ -29,14 +29,14 @@ public class CmDivisionResource {
 	}
 
 	@GetMapping("/getDivisionName")
-	public ResponseEntity<List<CmDivision>> getDivisionNameBySearch(@RequestParam String divisionName) {
-		List<CmDivision> cmDivisionDetails = cmDivisionService.findByDivisionName(divisionName);
+	public ResponseEntity<List<Object>> getDivisionNameBySearch(@RequestParam String divisionName) {
+		List<Object> cmDivisionDetails = cmDivisionService.findByDivisionName(divisionName);
 		return ResponseEntity.ok().body(cmDivisionDetails);
 	}
 
 	@GetMapping("/getDivisionNameByCircleAutoId")
-	public ResponseEntity<List<CmDivision>> getDivisionNameByCircleAutoId(@RequestParam int circleAutoid) {
-		List<CmDivision> cmDivisionDetails = cmDivisionService.findDivisionNameBycircleAutoid(circleAutoid);
+	public ResponseEntity<List<Object>> getDivisionNameByCircleAutoId(@RequestParam int circleAutoid) {
+		List<Object> cmDivisionDetails = cmDivisionService.findDivisionNameBycircleAutoid(circleAutoid);
 		return ResponseEntity.ok().body(cmDivisionDetails);
 	}
 }

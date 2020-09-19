@@ -29,16 +29,16 @@ public class CmTownResource {
 	}
 
 	@GetMapping("/getTownName")
-	public ResponseEntity<List<CmTown>> getTownName(@RequestParam String townName) {
-		List<CmTown> cmTownNameDetails = cmTownService.findById(townName);
+	public ResponseEntity<List<Object>> getTownName(@RequestParam String townName) {
+		List<Object> cmTownNameDetails = cmTownService.findById(townName);
 		return ResponseEntity.ok().body(cmTownNameDetails);
 	}
 
 	@GetMapping("/getTownNameByCirIdAndDivIdAnSubDivIdAndSecId")
-	public ResponseEntity<List<CmTown>> getTownNameByCircleAutoidAndDivisonAnSubDivisionAndSection(
+	public ResponseEntity<List<Object>> getTownNameByCircleAutoidAndDivisonAnSubDivisionAndSection(
 			@RequestParam int circleAutoid, @RequestParam int divisionAutoid, @RequestParam int subdivisionAutoid,
 			@RequestParam int sectionAutoid) {
-		List<CmTown> cmTownNameDetails = cmTownService.findByCircleNameAndDivisionNameAndSubDivisionNameAndSectionName(
+		List<Object> cmTownNameDetails = cmTownService.findByCircleNameAndDivisionNameAndSubDivisionNameAndSectionName(
 				circleAutoid, divisionAutoid, subdivisionAutoid, sectionAutoid);
 		return ResponseEntity.ok().body(cmTownNameDetails);
 	}

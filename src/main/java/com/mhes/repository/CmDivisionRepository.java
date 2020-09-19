@@ -17,9 +17,9 @@ import com.mhes.domain.CmDivision;
 @Transactional
 public interface CmDivisionRepository extends JpaRepository<CmDivision, Long> {
 
-	@Query("from CmDivision where divisionName LIKE %:divisionName%")
-	public List<CmDivision> findByDivisionName(String divisionName);
+	@Query("select autoId,divisionName from CmDivision where divisionName LIKE %:divisionName%")
+	public List<Object> findByDivisionName(String divisionName);
 
-	@Query("from CmDivision where circleAutoid=:circleAutoid")
-	List<CmDivision> findDivisionNameBycircleAutoid(long circleAutoid);
+	@Query("select autoId,divisionName from CmDivision where circleAutoid=:circleAutoid")
+	List<Object> findDivisionNameBycircleAutoid(long circleAutoid);
 }

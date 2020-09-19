@@ -13,9 +13,9 @@ public interface CmTransformerService {
 
 	List<CmTransformer> findAll();
 
-	List<CmTransformer> findByTransformerName(String transformerName);
+	List<Object> findByTransformerName(String transformerName);
 
-	List<CmTransformer> findByCirNameDivNameSubDivNameSecNameTownNameFeederName(long circleAutoid, long divisionAutoid,
+	List<Object> findByCirNameDivNameSubDivNameSecNameTownNameFeederName(long circleAutoid, long divisionAutoid,
 			long subdivisionAutoid, long sectionAutoid, long townAutoid, long substationAutoid, long feederAutoid);
 
 }

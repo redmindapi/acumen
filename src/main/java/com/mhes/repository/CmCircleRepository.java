@@ -17,6 +17,6 @@ import com.mhes.domain.CmCircle;
 @Transactional
 public interface CmCircleRepository extends JpaRepository<CmCircle, Long> {
 
-	@Query("from CmCircle where circleName LIKE %:circleName%")
-	public List<CmCircle> findByCircleName(String circleName);
+	@Query("select circleName,autoId from CmCircle where circleName LIKE %:circleName%")
+	public List<Object> findByCircleName(String circleName);
 }

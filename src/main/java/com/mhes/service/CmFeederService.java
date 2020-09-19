@@ -13,9 +13,9 @@ public interface CmFeederService {
 
 	List<CmFeeder> findAll();
 
-	List<CmFeeder> findByFeederName(String feederName);
+	List<Object> findByFeederName(String feederName);
 
-	List<CmFeeder> findByCirNameDivNameSubDivNameSecNameTownName(long circleAutoid, long divisionAutoid,
+	List<Object> findByCirNameDivNameSubDivNameSecNameTownName(long circleAutoid, long divisionAutoid,
 			long subdivisionAutoid, long sectionAutoid, long townAutoid, long substationAutoid);
 
 }

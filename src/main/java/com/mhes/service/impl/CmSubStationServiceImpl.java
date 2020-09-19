@@ -27,13 +27,13 @@ public class CmSubStationServiceImpl implements CmSubStationService {
 	}
 
 	@Override
-	public List<CmSubStation> findBySubStationName(String subStationName) {
+	public List<Object> findBySubStationName(String subStationName) {
 
 		return cmSubStationRepository.findBySubStationName(subStationName);
 	}
 
 	@Override
-	public List<CmSubStation> findByCirNameAndDivNameAndSubDivNameAndSecNameAndTownName(long circleAutoid,
+	public List<Object> findByCirNameAndDivNameAndSubDivNameAndSecNameAndTownName(long circleAutoid,
 			long divisionAutoid, long subdivisionAutoid, long sectionAutoid, long townAutoid) {
 
 		return cmSubStationRepository.findByCirNameAndDivNameAndSubDivNameAndSecNameAndTownName(circleAutoid,

@@ -12,8 +12,8 @@ import com.mhes.domain.CmSubStation;
 public interface CmSubStationService {
 	List<CmSubStation> findAll();
 
-	List<CmSubStation> findBySubStationName(String subStationName);
+	List<Object> findBySubStationName(String subStationName);
 
-	List<CmSubStation> findByCirNameAndDivNameAndSubDivNameAndSecNameAndTownName(long circleAutoid, long divisionAutoid,
+	List<Object> findByCirNameAndDivNameAndSubDivNameAndSecNameAndTownName(long circleAutoid, long divisionAutoid,
 			long subdivisionAutoid, long sectionAutoid, long townAutoid);
 }

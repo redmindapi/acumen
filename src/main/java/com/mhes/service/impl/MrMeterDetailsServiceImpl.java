@@ -40,4 +40,9 @@ public class MrMeterDetailsServiceImpl implements MrMeterDetailsService{
 		return mrMeterDetailsRepository.save(mrMeterDetails);
 	}
 
+	@Override
+	public List<Object> findByMrMeterDetails(String meterSerialnumber) {
+		return mrMeterDetailsRepository.findByMrMeterDetails(meterSerialnumber);
+	}
+
 }

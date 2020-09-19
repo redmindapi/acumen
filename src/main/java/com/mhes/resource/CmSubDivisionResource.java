@@ -29,22 +29,22 @@ public class CmSubDivisionResource {
 	}
 
 	@GetMapping("/getSubDivisionName")
-	public ResponseEntity<List<CmSubDivision>> getSubDivisionNameBySearch(@RequestParam String subdivisionName) {
-		List<CmSubDivision> cmSubDivisionDetails = cmSubDivisionService.findBySubDivisionName(subdivisionName);
+	public ResponseEntity<List<Object>> getSubDivisionNameBySearch(@RequestParam String subdivisionName) {
+		List<Object> cmSubDivisionDetails = cmSubDivisionService.findBySubDivisionName(subdivisionName);
 		return ResponseEntity.ok().body(cmSubDivisionDetails);
 	}
 
 	@GetMapping("/getSubDivisionNameByCircleIdAndDivisionId")
-	public ResponseEntity<List<CmSubDivision>> getSubDivisionNameByCircleAutoIdAndDivisionAutoId(
+	public ResponseEntity<List<Object>> getSubDivisionNameByCircleAutoIdAndDivisionAutoId(
 			@RequestParam long circleAutoid, @RequestParam long divisionAutoid) {
-		List<CmSubDivision> cmDivisionDetails = cmSubDivisionService.findByCircleNameAndDivisionName(circleAutoid,
+		List<Object> cmDivisionDetails = cmSubDivisionService.findByCircleNameAndDivisionName(circleAutoid,
 				divisionAutoid);
 		return ResponseEntity.ok().body(cmDivisionDetails);
 	}
 
 	@GetMapping("/getSubDivisionNameByDivisionId")
-	public ResponseEntity<List<CmSubDivision>> getSubDivisionNameByDivisionAutoId(@RequestParam long divisionAutoid) {
-		List<CmSubDivision> cmDivisionDetails = cmSubDivisionService.findByDivisionName(divisionAutoid);
+	public ResponseEntity<List<Object>> getSubDivisionNameByDivisionAutoId(@RequestParam long divisionAutoid) {
+		List<Object> cmDivisionDetails = cmSubDivisionService.findByDivisionName(divisionAutoid);
 		return ResponseEntity.ok().body(cmDivisionDetails);
 	}
 }
