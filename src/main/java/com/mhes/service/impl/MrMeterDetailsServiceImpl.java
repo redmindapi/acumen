@@ -45,4 +45,10 @@ public class MrMeterDetailsServiceImpl implements MrMeterDetailsService{
 		return mrMeterDetailsRepository.findByMrMeterDetails(meterSerialnumber);
 	}
 
+	@Override
+	public List<Object> findByconnectionStatus(String connectionStatus) {
+		
+		return  mrMeterDetailsRepository.findByconnectionStatus(connectionStatus);
+	}
+
 }

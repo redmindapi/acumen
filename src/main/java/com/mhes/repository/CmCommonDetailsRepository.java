@@ -19,13 +19,7 @@ import com.mhes.domain.CmCommonDetails;
 @Transactional
 public interface CmCommonDetailsRepository extends JpaRepository<CmCommonDetails, Long> {
 
-	@Query("select commonValue from CmCommonDetails where commonName='Source Meter type'")
-	public List<Object> finByCommonNameMetertype();
-
-	@Query("select commonValue from CmCommonDetails where commonName='INSTALLATION_TYPE'")
-	public List<Object> finByCommonNameInstallType();
-
-	@Query("select commonValue from CmCommonDetails where commonName='INSTALLATION_SUB_TYPE'")
-	public List<Object> finByCommonNameInstallSubType();
+	@Query("select commonValue from CmCommonDetails where commonName=:commonName")
+	public List<Object> finByCommonNameMetertype(String commonName);
 
 }

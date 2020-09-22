@@ -27,21 +27,11 @@ public class CmCommonDetailsServiceImpl implements CmCommonDetailsService {
 	}
 
 	@Override
-	public List<Object> finByCommonNameMetertype() {
-
-		return cmCommonDetailsRepository.finByCommonNameMetertype();
+	public List<Object> finByCommonNameMetertype(String commonName) {
+		
+		return cmCommonDetailsRepository.finByCommonNameMetertype(commonName);
 	}
 
-	@Override
-	public List<Object> finByCommonNameInstallType() {
-
-		return cmCommonDetailsRepository.finByCommonNameInstallType();
-	}
-
-	@Override
-	public List<Object> finByCommonNameInstallSubType() {
-
-		return cmCommonDetailsRepository.finByCommonNameInstallSubType();
-	}
+	
 
 }

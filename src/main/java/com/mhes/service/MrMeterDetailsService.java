@@ -17,4 +17,5 @@ public interface MrMeterDetailsService {
     List<MrMeterDetails> findAll();
     MrMeterDetails save(MrMeterDetails mrMeterDetails);
     public List<Object> findByMrMeterDetails(String meterSerialnumber);
+    public List<Object> findByconnectionStatus(String connectionStatus);
 }
