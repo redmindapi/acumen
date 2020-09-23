@@ -1,11 +1,14 @@
 package com.mhes.repository;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
+import com.mhes.domain.DpTimeTable;
 import com.mhes.domain.MrMeterDetails;
+import com.mhes.domain.MrMeterLocation;
 import com.mhes.request.MeterSearchRequest;
 
 /**
@@ -14,11 +17,25 @@ import com.mhes.request.MeterSearchRequest;
  *
  */
 @Repository
-@Transactional
-public class MeterSearchRespository  {
+@Transactional(readOnly = true)
+public class MeterSearchRespository implements MeterLocationCustomRepository{
 
+	@PersistenceContext
+	EntityManager entityManager;
+
+	@Override
+	public List<Object> getMeterLocationDetailsByCriteria(String query) {
+		criteriaQuery.append(query);
+		Query queryString = entityManager.createNativeQuery(criteriaQuery.toString(), MrMeterLocation.class);	
+		return (List<Object>) queryString.getResultList();
+	}
 	
-	 MrMeterLocationRepository mrMeterLocationRepository;
 	
-	 //String query=""
+	@Override
+	public List<Object> getDpDetailsByCriteria(String query) {
+		
+		criteriaQueryMrDetails.append(query);
+		Query queryString = entityManager.createNativeQuery(criteriaQueryDptimetableDetails.toString(), DpTimeTable.class);
+		return (List<Object>) queryString.getResultList();
+	}
 }

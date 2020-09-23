@@ -117,6 +117,21 @@ public class MeterSearchReponse implements Serializable{
 	public void setLastCommDatetime(LocalDateTime lastCommDatetime) {
 		this.lastCommDatetime = lastCommDatetime;
 	}
+
+	public MeterSearchReponse(String meterSerialNumber, String locationName, String locationCode, String sourceType,
+			String divisionName, String circleName, LocalDateTime firstCommDatetime, LocalDateTime lastCommDatetime,
+			List<String> errmessage) {
+		super();
+		this.meterSerialNumber = meterSerialNumber;
+		this.locationName = locationName;
+		this.locationCode = locationCode;
+		this.sourceType = sourceType;
+		this.divisionName = divisionName;
+		this.circleName = circleName;
+		this.firstCommDatetime = firstCommDatetime;
+		this.lastCommDatetime = lastCommDatetime;
+		this.errmessage = errmessage;
+	}
 	
 
 	

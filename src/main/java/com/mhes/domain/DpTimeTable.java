@@ -3,11 +3,14 @@ package com.mhes.domain;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -59,6 +62,10 @@ public class DpTimeTable implements Serializable {
 	@Column(name = "companyAutoid")
 	private long companyAutoid;
 
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name ="meterAutoid", referencedColumnName = "autoid")
+	private MrMeterDetails mrMeterDetails;
+	
 	public long getAutoId() {
 		return autoId;
 	}
@@ -137,6 +144,20 @@ public class DpTimeTable implements Serializable {
 
 	public void setCompanyAutoid(long companyAutoid) {
 		this.companyAutoid = companyAutoid;
+	}
+
+	/**
+	 * @return the mrMeterDetails
+	 */
+	public MrMeterDetails getMrMeterDetails() {
+		return mrMeterDetails;
+	}
+
+	/**
+	 * @param mrMeterDetails the mrMeterDetails to set
+	 */
+	public void setMrMeterDetails(MrMeterDetails mrMeterDetails) {
+		this.mrMeterDetails = mrMeterDetails;
 	}
 
 	@Override

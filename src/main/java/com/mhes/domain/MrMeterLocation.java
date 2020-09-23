@@ -2,12 +2,18 @@ package com.mhes.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -22,11 +28,60 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 @JsonAutoDetect
 public class MrMeterLocation implements Serializable {
 	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+	//private static long serialVersionUID = 1L;
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
 		@Column(name = "autoid")
 		private long autoid;
+
+		@Column(name = "countryAutoid")
+		private long countryAutoid;
+
+		@Column(name = "stateAutoid")
+		private long stateAutoid;
+		
+		@Column(name = "districtAutoid")
+		private long districtAutoid;
+		
+		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name ="circleAutoid", referencedColumnName = "autoid")
+		private CmCircle cmCircle;
+
+		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name ="divisionAutoid", referencedColumnName = "autoid")
+		private CmDivision cmDivision;
+		
+		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name ="subdivisionAutoid", referencedColumnName = "autoid")
+		private CmSubDivision cmSubDivision;
+
+		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name ="sectionAutoid", referencedColumnName = "autoid")
+		private CmSection cmSection;
+
+		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name ="townAutoid", referencedColumnName = "autoid")
+		private CmTown cmTown;
+		
+		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name ="substationAutoid", referencedColumnName = "autoid")
+		private CmSubStation cmSubStation;
+		
+		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name ="feederAutoid", referencedColumnName = "autoid")
+		private CmFeeder cmFeeder;
+		
+		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name ="transformerAutoid", referencedColumnName = "autoid")
+		private CmTransformer cmTransformer;
+
+		@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+		@JoinColumn(name ="meterdetailsautoid", referencedColumnName = "autoid")
+		private MrMeterDetails mrMeterDetails;
 
 		@Column(name = "lacationCode")
 		private String lacationCode;
@@ -68,7 +123,7 @@ public class MrMeterLocation implements Serializable {
 		private String consumptionZone;
 		
 		@Column(name = "companyAutoid")
-		private String companyAutoid;
+		private long companyAutoid;
 
 		/**
 		 * @return the autoid
@@ -269,17 +324,183 @@ public class MrMeterLocation implements Serializable {
 		/**
 		 * @return the companyAutoid
 		 */
-		public String getCompanyAutoid() {
+		public long getCompanyAutoid() {
 			return companyAutoid;
 		}
 
 		/**
 		 * @param companyAutoid the companyAutoid to set
 		 */
-		public void setCompanyAutoid(String companyAutoid) {
+		public void setCompanyAutoid(long companyAutoid) {
 			this.companyAutoid = companyAutoid;
 		}
 
 		
 
+		/**
+		 * @return the countryCode
+		 */
+		public long getCountryAutoid() {
+			return countryAutoid;
+		}
+
+		/**
+		 * @param countryCode the countryCode to set
+		 */
+		public void setCountryAutoid(long countryAutoid) {
+			this.countryAutoid = countryAutoid;
+		}
+
+		/**
+		 * @return the cmDivision
+		 */
+		public CmDivision getCmDivision() {
+			return cmDivision;
+		}
+
+		/**
+		 * @param cmDivision the cmDivision to set
+		 */
+		public void setCmDivision(CmDivision cmDivision) {
+			this.cmDivision = cmDivision;
+		}
+
+		/**
+		 * @return the cmSubDivision
+		 */
+		public CmSubDivision getCmSubDivision() {
+			return cmSubDivision;
+		}
+
+		/**
+		 * @param cmSubDivision the cmSubDivision to set
+		 */
+		public void setCmSubDivision(CmSubDivision cmSubDivision) {
+			this.cmSubDivision = cmSubDivision;
+		}
+
+		/**
+		 * @return the cmTown
+		 */
+		public CmTown getCmTown() {
+			return cmTown;
+		}
+
+		/**
+		 * @param cmTown the cmTown to set
+		 */
+		public void setCmTown(CmTown cmTown) {
+			this.cmTown = cmTown;
+		}
+
+		/**
+		 * @return the cmSubStation
+		 */
+		public CmSubStation getCmSubStation() {
+			return cmSubStation;
+		}
+
+		/**
+		 * @param cmSubStation the cmSubStation to set
+		 */
+		public void setCmSubStation(CmSubStation cmSubStation) {
+			this.cmSubStation = cmSubStation;
+		}
+
+		/**
+		 * @return the cmFeeder
+		 */
+		public CmFeeder getCmFeeder() {
+			return cmFeeder;
+		}
+
+		/**
+		 * @param cmFeeder the cmFeeder to set
+		 */
+		public void setCmFeeder(CmFeeder cmFeeder) {
+			this.cmFeeder = cmFeeder;
+		}
+
+		/**
+		 * @return the cmTransformer
+		 */
+		public CmTransformer getCmTransformer() {
+			return cmTransformer;
+		}
+
+		/**
+		 * @param cmTransformer the cmTransformer to set
+		 */
+		public void setCmTransformer(CmTransformer cmTransformer) {
+			this.cmTransformer = cmTransformer;
+		}
+
+		/**
+		 * @return the stateAutoid
+		 */
+		public long getStateAutoid() {
+			return stateAutoid;
+		}
+
+		/**
+		 * @param stateAutoid the stateAutoid to set
+		 */
+		public void setStateAutoid(long stateAutoid) {
+			this.stateAutoid = stateAutoid;
+		}
+
+		/**
+		 * @return the districtAutoid
+		 */
+		public long getDistrictAutoid() {
+			return districtAutoid;
+		}
+
+		/**
+		 * @param districtAutoid the districtAutoid to set		 */
+		public void setDistrictAutoid(long districtAutoid) {
+		this.districtAutoid = districtAutoid;
+		}
+
+		/**
+		 * @return the cmCircle
+		 */
+		public CmCircle getCmCircle() {
+			return cmCircle;
+		}
+
+		/**
+		 * @param cmCircle the cmCircle to set
+		 */
+		public void setCmCircle(CmCircle cmCircle) {
+			this.cmCircle = cmCircle;
+		}
+
+		/**
+	/ * @return the cmSection
+		 */
+		public CmSection getCmSection() {
+			return cmSection;
+		}
+
+		/**
+		 * @param cmSection the cmSection to set
+		 */
+		public void setCmSection(CmSection cmSection) {
+			this.cmSection = cmSection;
+		}
+
+		/**
+		 * @return the mrMeterDetails
+		 */
+		public MrMeterDetails getMrMeterDetails() {
+			return mrMeterDetails;
+		}
+
+		/**
+		 * @param mrMeterDetails the mrMeterDetails to set
+		 */
+		public void setMrMeterDetails(MrMeterDetails mrMeterDetails) {
+			this.mrMeterDetails = mrMeterDetails;
+		}
 }

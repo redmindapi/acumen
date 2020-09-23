@@ -3,11 +3,14 @@ package com.mhes.domain;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
@@ -34,11 +37,11 @@ public class CmCircle implements Serializable {
 
 //	@ManyToOne(cascade = CascadeType.ALL)
 //	@JoinColumn(name = "countryAutoid", referencedColumnName = "autoid")
-//	private CmCountry cmcountry;
+//	//private CmCountry cmcountry;
 //
 //	@ManyToOne(cascade = CascadeType.ALL)
 //	@JoinColumn(name = "stateAutoid", referencedColumnName = "autoid")
-//	private CmState cmstate;
+//	//private CmState cmstate;
 //
 //	@ManyToOne(cascade = CascadeType.ALL)
 //	@JoinColumn(name = "districtAutoid", referencedColumnName = "autoid")

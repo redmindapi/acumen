@@ -6,8 +6,10 @@ package com.mhes.domain;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.io.Serializable;
 
 /**
@@ -51,7 +53,16 @@ public class MrMeterDetails implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name ="companyAutoid", referencedColumnName = "autoid")
 	private VmCompanyProfile vmCompanyProfile;
+
+	//@OneToMany(cascade = CascadeType.ALL)
+	@JsonIgnore
+	@OneToMany(mappedBy = "mrMeterDetails", cascade = {CascadeType.ALL})
+	private List<DpTimeTable> dpTimeTable;
 	
+	@JsonIgnore
+	@OneToMany(mappedBy = "mrMeterDetails", cascade = {CascadeType.ALL})
+	private List<MrMetermfDetails> MrMetermfDetails;
+
 	@Column(name = "meterMappedDate")
 	private LocalDateTime meterMappedDate;
 	
@@ -102,6 +113,7 @@ public class MrMeterDetails implements Serializable {
 	
 	@Column(name = "currentRating")
 	private String currentRating;
+	
 
 	public long getAutoId() {
 		return autoId;
@@ -314,6 +326,34 @@ public class MrMeterDetails implements Serializable {
 	public void setVmMeterManufacture(VmMeterManufacture vmMeterManufacture) {
 		this.vmMeterManufacture = vmMeterManufacture;
 	}
+
+	/**
+	 * @return the dpTimeTable
+	 */
+	public List<DpTimeTable> getDpTimeTable() {
+		return dpTimeTable;
+	}
+
+	/**
+	 * @param dpTimeTable the dpTimeTable to set
+	 */
+	public void setDpTimeTable(List<DpTimeTable> dpTimeTable) {
+		this.dpTimeTable = dpTimeTable;
+	}
+
+	/**
+	 * @return the mrMetermfDetails
+	 */
+//	public List<MrMetermfDetails> getMrMetermfDetails() {
+//		return MrMetermfDetails;
+//	}
+//
+//	/**
+//	 * @param mrMetermfDetails the mrMetermfDetails to set
+//	 */
+//	public void setMrMetermfDetails(List<MrMetermfDetails> mrMetermfDetails) {
+//		MrMetermfDetails = mrMetermfDetails;
+//	}
 
 	@Override
 	public String toString() {

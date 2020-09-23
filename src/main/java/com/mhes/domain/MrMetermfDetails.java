@@ -3,14 +3,19 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * 
@@ -30,9 +35,7 @@ public class MrMetermfDetails implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
 	@Column(name = "autoid")
 	private long autoId;
-	@Column(name = "meterDetailsAutoid")
-	private long meterDetailsAutoid;
-	
+
 	@Column(name = "mfYear")
 	private long mfYear;
 	
@@ -71,9 +74,12 @@ public class MrMetermfDetails implements Serializable {
 	
 	@Column(name = "companyAutoid")
 	private Long companyAutoid;
-	
-	
-	
+
+	@JsonIgnore
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name ="meterDetailsAutoid", referencedColumnName = "autoid")
+	private MrMeterDetails mrMeterDetails;
+
 	/**
 	 * @return the autoId
 	 */
@@ -86,20 +92,6 @@ public class MrMetermfDetails implements Serializable {
 	 */
 	public void setAutoId(long autoId) {
 		this.autoId = autoId;
-	}
-
-	/**
-	 * @return the meterDetailsAutoid
-	 */
-	public long getMeterDetailsAutoid() {
-		return meterDetailsAutoid;
-	}
-
-	/**
-	 * @param meterDetailsAutoid the meterDetailsAutoid to set
-	 */
-	public void setMeterDetailsAutoid(long meterDetailsAutoid) {
-		this.meterDetailsAutoid = meterDetailsAutoid;
 	}
 
 	/**
@@ -277,17 +269,19 @@ public class MrMetermfDetails implements Serializable {
 
 	
 
-	@Override
-	public String toString() {
-		return "MrMetermfDetails [autoId=" + autoId + ", meterDetailsAutoid=" + meterDetailsAutoid + ", mfYear="
-				+ mfYear + ", fwVersion=" + fwVersion + ", fwDate=" + fwDate + ", meterType=" + meterType
-				+ ", meterCategory=" + meterCategory + ", voltageMultipiler=" + voltageMultipiler
-				+ ", currentMultipiler=" + currentMultipiler + ", energyMultipiler=" + energyMultipiler
-				+ ", insertedBy=" + insertedBy + ", insertedDate=" + insertedDate + ", updatedBy=" + updatedBy
-				+ ", updatedDate=" + updatedDate + ", companyAutoid=" + companyAutoid + "]";
+	/**
+	 * @return the mrMeterDetails
+	 */
+	public MrMeterDetails getMrMeterDetails() {
+		return mrMeterDetails;
 	}
 
-	
-	
+	/**
+	 * @param mrMeterDetails the mrMeterDetails to set
+	 */
+	public void setMrMeterDetails(MrMeterDetails mrMeterDetails) {
+		this.mrMeterDetails = mrMeterDetails;
+	}
+
 
 }

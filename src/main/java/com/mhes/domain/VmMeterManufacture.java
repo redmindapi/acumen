@@ -60,8 +60,8 @@ public class VmMeterManufacture implements Serializable {
 	@Column(name = "companyAutoid")
 	private Long companyAutoId;
 
-	/*@OneToMany(mappedBy = "vmMeterManufacture", cascade = {CascadeType.ALL})
-	private List<MrMeterDetails> mrMeterDetails;*/
+	@OneToMany(mappedBy = "vmMeterManufacture", cascade = {CascadeType.ALL})
+	private List<MrMeterDetails> mrMeterDetails;
 
 	public long getAutoId() {
 		return autoId;

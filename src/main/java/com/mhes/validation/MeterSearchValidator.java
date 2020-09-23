@@ -35,7 +35,7 @@ public class MeterSearchValidator extends Utility implements Validator{
 	public void dateValidation(MeterSearchRequest meterSearchRequest,BindingResult result ) {
 		List<String> errmessage= new ArrayList<>();
 		
-	       // boolean isExpired = false;
+	      /* // boolean isExpired = false;
 	        if (meterSearchRequest.getToDate() != null) {          
 	                if (meterSearchRequest.getToDate().after(new Date())) {
 	                	errmessage.add("ToDate Cannot be greater than Current Date");
@@ -59,6 +59,6 @@ public class MeterSearchValidator extends Utility implements Validator{
 	     
 	   
 		
+	}*/
 	}
-
 }

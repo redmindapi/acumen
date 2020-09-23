@@ -13,7 +13,7 @@ import com.mhes.domain.MrMeterLocation;
  */
 @Repository
 @Transactional
-public interface MrMeterLocationRepository extends JpaRepository<MrMeterLocation, Long> {
+public interface MrMeterLocationRepository extends JpaRepository<MrMeterLocation, Long>{
 	
 	//@Query("select circleName,autoId from MrMeterLocation where circleName LIKE %:circleName%")
 	//public List<MrMeterLocation> findByCircleName(String circleName);
