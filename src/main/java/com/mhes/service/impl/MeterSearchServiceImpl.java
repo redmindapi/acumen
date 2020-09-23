@@ -153,7 +153,13 @@ public class MeterSearchServiceImpl implements MeterSearchService{
 			//			
 			manQuery=" where dp.companyAutoid =" +meterSearchRequest.getManufactureautoid();
 		}
-		
+		if(manQuery.isEmpty())
+		{
+			if(!meterSearchRequest.getMeterCategory().isEmpty())
+			{
+				
+			}
+		}
 		
 		
 		

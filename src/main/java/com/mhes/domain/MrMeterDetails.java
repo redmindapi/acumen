@@ -49,7 +49,7 @@ public class MrMeterDetails implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name ="manufactureAutoid", referencedColumnName = "autoid")
 	private VmMeterManufacture vmMeterManufacture;
-
+	
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name ="companyAutoid", referencedColumnName = "autoid")
 	private VmCompanyProfile vmCompanyProfile;
@@ -62,9 +62,6 @@ public class MrMeterDetails implements Serializable {
 	@JsonIgnore
 	@OneToMany(mappedBy = "mrMeterDetails", cascade = {CascadeType.ALL})
 	private List<MrMetermfDetails> MrMetermfDetails;
-
-    @Column(name = "companyAutoid")
-	private long companyAutoid;
     
 	@Column(name = "meterMappedDate")
 	private LocalDateTime meterMappedDate;
@@ -278,14 +275,6 @@ public class MrMeterDetails implements Serializable {
 		this.updatedDate = updatedDate;
 	}
 
-	public long getCompanyAutoid() {
-		return companyAutoid;
-	}
-
-	public void setCompanyAutoid(long companyAutoid) {
-		this.companyAutoid = companyAutoid;
-	}
-
 	public long getLocationAutoid() {
 		return locationAutoid;
 	}
@@ -310,19 +299,19 @@ public class MrMeterDetails implements Serializable {
 		this.currentRating = currentRating;
 	}
 
-//	/**
-//	 * @return the vmCompanyProfile
-//	 */
-//	public VmCompanyProfile getVmCompanyProfile() {
-//		return vmCompanyProfile;
-//	}
-//
-//	/**
-//	 * @param vmCompanyProfile the vmCompanyProfile to set
-//	 */
-//	public void setVmCompanyProfile(VmCompanyProfile vmCompanyProfile) {
-//		this.vmCompanyProfile = vmCompanyProfile;
-//	}
+	/**
+	 * @return the vmCompanyProfile
+	 */
+	public VmCompanyProfile getVmCompanyProfile() {
+		return vmCompanyProfile;
+	}
+
+	/**
+	 * @param vmCompanyProfile the vmCompanyProfile to set
+	 */
+	public void setVmCompanyProfile(VmCompanyProfile vmCompanyProfile) {
+		this.vmCompanyProfile = vmCompanyProfile;
+	}
 
 	/**
 	 * @return the vmMeterManufacture

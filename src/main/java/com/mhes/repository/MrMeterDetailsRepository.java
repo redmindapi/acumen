@@ -19,9 +19,9 @@ public interface MrMeterDetailsRepository extends JpaRepository<MrMeterDetails, 
 
 	//List<MrMeterDetails> findMrMeterDetailsByMeterSerialNumberAndManufactureAutoIdAndCompanyAutoId(String meterSerialNumber, int manufactureAutoId, int companyAutoId);
 
-	@Query("select meterSerialNumber,companyAutoid from MrMeterDetails where meterSerialNumber LIKE %:mrmeterserialnumber%")
+	@Query("select meterSerialNumber from MrMeterDetails where meterSerialNumber LIKE %:mrmeterserialnumber%")
 	public List<Object> findByMrMeterDetails(String mrmeterserialnumber);
 	
-	@Query("select meterSerialNumber,companyAutoid from MrMeterDetails where connectionStatus=:connectionStatus")
+	@Query("select meterSerialNumber from MrMeterDetails where connectionStatus=:connectionStatus")
 	public List<Object> findByconnectionStatus(String connectionStatus);
 }
