@@ -13,9 +13,6 @@ public interface CmCommonDetailsService {
 
 	List<CmCommonDetails> findAll();
 	
-	public List<Object> finByCommonNameMetertype();
+	public List<Object> finByCommonNameMetertype(String commonName);
 	
-	public List<Object> finByCommonNameInstallType();
-	
-	public List<Object> finByCommonNameInstallSubType();
 }

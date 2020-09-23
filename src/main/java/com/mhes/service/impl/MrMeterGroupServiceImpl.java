@@ -21,10 +21,13 @@ public class MrMeterGroupServiceImpl implements MrMeterGroupService{
 		// TODO Auto-generated method stub
 		return mrMeterGroupRepository.findAll();
 	}
+
+	@Override
+	public List<Object> findByMeterGroup(String groupName) {
+		
+		return mrMeterGroupRepository.findByMeterGroup(groupName);
+	}
 	
-	/*
-	 * @Override public List<MrMeterGroup> findAll() { // TODO Auto-generated method
-	 * stub return mrMeterGroupRepository.findAll(); }
-	 */
+	
 
 }

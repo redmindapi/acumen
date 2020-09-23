@@ -13,4 +13,5 @@ import com.mhes.domain.MrMeterGroup;
 public interface MrMeterGroupService {
 
 	List<MrMeterGroup> findAll();
+	List<Object>  findByMeterGroup(String groupName);
 }

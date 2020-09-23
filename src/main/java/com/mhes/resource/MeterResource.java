@@ -39,6 +39,11 @@ public class MeterResource {
 		List<Object> mrMeterDetails = mrMeterDetailsService.findByMrMeterDetails(meterSerialnumber);
         return ResponseEntity.ok().body(mrMeterDetails);
 	}
+	@GetMapping("/getDetailsByConnectionStatus")
+    public ResponseEntity<List<Object>> getDetailsByConnectionStatus(@RequestParam String connectionStatus) {
+		List<Object> mrMeterDetails = mrMeterDetailsService.findByconnectionStatus(connectionStatus);
+        return ResponseEntity.ok().body(mrMeterDetails);
+	}
 
 	/*
 	 * @RequestMapping(value =

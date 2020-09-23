@@ -54,7 +54,7 @@ public class MrMeterGroup implements Serializable{
 	private LocalDateTime updatedDate;
 	
 	@Column(name = "companyAutoid")
-	private int companyAutoid;
+	private long companyAutoid;
 
 	/**
 	 * @return the autoId
@@ -171,14 +171,14 @@ public class MrMeterGroup implements Serializable{
 	/**
 	 * @return the companyAutoid
 	 */
-	public int getCompanyAutoid() {
+	public long getCompanyAutoid() {
 		return companyAutoid;
 	}
 
 	/**
 	 * @param companyAutoid the companyAutoid to set
 	 */
-	public void setCompanyAutoid(int companyAutoid) {
+	public void setCompanyAutoid(long companyAutoid) {
 		this.companyAutoid = companyAutoid;
 	}
 

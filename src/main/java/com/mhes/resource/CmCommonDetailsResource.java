@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mhes.domain.CmCommonDetails;
@@ -30,23 +31,11 @@ public class CmCommonDetailsResource {
 	}
 
 	@GetMapping("/getCommonNameByMeterType")
-	public ResponseEntity<List<Object>> getCommonNameByMeterType(){
+	public ResponseEntity<List<Object>> getCommonNameByMeterType(@RequestParam String commonName){
 		
-		List<Object> cmcommonDetails = cmCommonDetailsService.finByCommonNameMetertype();
+		List<Object> cmcommonDetails = cmCommonDetailsService.finByCommonNameMetertype(commonName);
 		return ResponseEntity.ok().body(cmcommonDetails);
 	}
 	
-	@GetMapping("/getCommonNameByInstallType")
-	public ResponseEntity<List<Object>> getCommonNameByInstallType(){
-		
-		List<Object> cmcommonDetails = cmCommonDetailsService.finByCommonNameInstallType();
-		return ResponseEntity.ok().body(cmcommonDetails);
-	}
 	
-	@GetMapping("/getCommonNameByInstallSubType")
-	public ResponseEntity<List<Object>> getCommonNameByInstallSubType(){
-		
-		List<Object> cmcommonDetails = cmCommonDetailsService.finByCommonNameInstallSubType();
-		return ResponseEntity.ok().body(cmcommonDetails);
-	}
 }
