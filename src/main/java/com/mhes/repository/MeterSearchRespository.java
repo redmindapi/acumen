@@ -51,8 +51,10 @@ public class MeterSearchRespository implements MeterLocationCustomRepository{
 
 	@Override
 	public List<Object> getQueryConnectionstsByCriteria(String query) {
-		// TODO Auto-generated method stub
-		return null;
+		CriteriaQueryConnectionsts.append(query);
+		Query queryString = entityManager.createNativeQuery(CriteriaQueryConnectionsts.toString(), DpTimeTable.class);
+		return (List<Object>) queryString.getResultList();
+		
 	}
 
 

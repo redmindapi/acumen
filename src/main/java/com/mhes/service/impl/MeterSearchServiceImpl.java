@@ -49,10 +49,12 @@ public class MeterSearchServiceImpl implements MeterSearchService{
 	public List<Object> findAllMeterSearchResults(MeterSearchRequest meterSearchRequest) {
 		
 		String queryNwandMan="";
+		String queryComm="";
 		
 		String queryForNetwork =searchNetworkheirachycriteria(meterSearchRequest);
 		String queryForManuFacture=searchManufacturerDetails(meterSearchRequest);
-			
+		String queryForComm=searchCommunicationDetails(meterSearchRequest);	
+		
 		//ONLY NETWORK
 		if(!queryForNetwork.isEmpty() && queryForManuFacture.isEmpty() ) 
 		{
@@ -77,21 +79,26 @@ public class MeterSearchServiceImpl implements MeterSearchService{
 				mrMeterMfDetails = meterSearchRespository.getQueryMetermanufacturerByCriteria(queryNwandMan);
 		}
 		// METERMANUFACTURE NAME ONLY
-		if(!meterSearchRequest.getManufactureName().isEmpty() && queryForNetwork.isEmpty() && queryForManuFacture.isEmpty() )
-		{
-			String query=" ";
-			 mrMeterManufacturerNameDetails =findbyManufacturernameCombinations(query,meterSearchRequest);
-		}
+		
+		  if(meterSearchRequest.getManufactureName()!=null && queryForNetwork.isEmpty()
+		  && queryForManuFacture.isEmpty() ) { 
+			  String query=" ";
+		  mrMeterManufacturerNameDetails=findbyManufacturernameCombinations(query,meterSearchRequest);
+		   }
+		 
 			
 		//METERMANUFACTURE NAME AND NETWROK VALUES ARE AVAILABLE
-		if(!meterSearchRequest.getManufactureName().isEmpty() && !queryForNetwork.isEmpty() && queryForManuFacture.isEmpty() )
-		{
-			String query=queryForNetwork;
-			mrMeterManufacturerNameDetails =findbyManufacturernameCombinations(query,meterSearchRequest);
-		}
+		
+		  if(meterSearchRequest.getManufactureName()!=null && queryForNetwork!=null && queryForManuFacture.isEmpty() ) { 
+		 
+			  String  query=queryForNetwork; 
+			  mrMeterManufacturerNameDetails =findbyManufacturernameCombinations(query,meterSearchRequest);
+		 
+		  }
+		 
 		
 		//METERMANUFACTURE NAME AND NETWROK VALUES AND MANUFACTURER TYPE,CATEGORY,YEAR,FRIMVERSION ARE AVAILABLE
-		if(!meterSearchRequest.getManufactureName().isEmpty() && !queryForNetwork.isEmpty() && !queryForManuFacture.isEmpty() )
+		if(meterSearchRequest.getManufactureName()!=null && queryForNetwork!=null && queryForManuFacture!=null )
 		{
 			///Need Calrification
 			//String query=queryForNetwork + queryForManuFacture;
@@ -103,24 +110,36 @@ public class MeterSearchServiceImpl implements MeterSearchService{
 			//List<Object> mrMeterManufacturerNameDetails = findbyManufacturernameCombinations(query,meterSearchRequest);
 		}
 		//METER COMMUNICATION STATUS ONLY 
-		if(!meterSearchRequest.getCommunicated().isEmpty())
+		if(meterSearchRequest.getCommunicated()!=null)
 		{
 			String query="mr.connectionStatus="+meterSearchRequest.getCommunicated();
 			mrMeterCommunicateDetails = meterSearchRespository.getQueryConnectionstsByCriteria(query);
 		}
-		//FROM DATE & TO DATE
-		if(!meterSearchRequest.getCommunicated().isEmpty() && (meterSearchRequest.getFromDate()!=null) && (meterSearchRequest.getToDate()!=null))
+		//Communication ,FROM DATE & TO DATE values are available
+		if(meterSearchRequest.getCommunicated()!=null && (meterSearchRequest.getFromDate()!=null) && (meterSearchRequest.getToDate()!=null))
 		{
-			String query="mr.connectionStatus=";
-			mrMeterCommunicateDetails = meterSearchRespository.getQueryConnectionstsByCriteria(query);
+			//String query="mr.connectionStatus=";
+			
+			mrMeterCommunicateDetails = meterSearchRespository.getDpDetailsByCriteria(queryForComm);
 		}
-		//METERGROUP
-		if(!meterSearchRequest.getMeterGroup().isEmpty())
+		// FROM DATE & TO DATE values are available and communication not available
+		if(meterSearchRequest.getCommunicated()!=null && (meterSearchRequest.getFromDate()!=null) && (meterSearchRequest.getToDate()!=null))
 		{
-			String query="mg.groupName=";
+			mrMeterCommunicateDetails = meterSearchRespository.getDpDetailsByCriteria(queryForComm);
+		}
+		//METERGROUP only
+		if(meterSearchRequest.getMeterGroup()!=null)
+		{
+			String query="mg.groupName="+meterSearchRequest.getMeterGroup();
 			mrMeterCommunicateDetails = meterSearchRespository.getQueryQueryMeterGrpByCriteria(query);
 		}
-		
+		//METERSerialNumber only
+		if(meterSearchRequest.getMeterSerialNumber()!=null)
+		{
+			String query="mr.meterSerialNumber="+meterSearchRequest.getMeterSerialNumber();
+			//mrMeterCommunicateDetails = meterSearchRespository.getQueryQueryMeterGrpByCriteria(query);
+			mrMeterLocationDetails = meterSearchRespository.getQueryQueryMeterserailpByCriteria(query);
+		}
 		return mrMeterMfDetails;
 	}
 
@@ -150,16 +169,19 @@ public class MeterSearchServiceImpl implements MeterSearchService{
 	
 	private String searchNetworkheirachycriteria(MeterSearchRequest meterSearchRequest) {
 		String query="";
+		
+		System.out.println("Query:"+query);
+		
 		if(meterSearchRequest.getCircleAutoid() != 0) {
 			
 			query= WHERE_VAL + CIRCLE_AUTOID + meterSearchRequest.getCircleAutoid();
-			
+			System.out.println("Query:"+query);
 		}
 		 if (meterSearchRequest.getDivisionAutoid() != 0)
 		{
 			if (query.isEmpty())
 			{
-				query= DIV_AUTOID + meterSearchRequest.getDivisionAutoid();
+				query= WHERE_VAL+DIV_AUTOID + meterSearchRequest.getDivisionAutoid();
 			}
 			else
 			{
@@ -301,5 +323,26 @@ public class MeterSearchServiceImpl implements MeterSearchService{
 		return manQuery;
 	}
 	
-	
+	private String searchCommunicationDetails(MeterSearchRequest meterSearchRequest) {
+		String commQuery = "";
+
+		if (meterSearchRequest.getCommunicated() != null) {
+			commQuery = "mr.connectionStatus=" + meterSearchRequest.getCommunicated();
+		}
+		if (meterSearchRequest.getFromDate() != null) {
+			if (commQuery.isEmpty()) {
+				commQuery = AND_VAL + "dp.insertedDate=" + meterSearchRequest.getFromDate();
+			} else {
+				commQuery = commQuery + AND_VAL + "dp.insertedDate=" + meterSearchRequest.getFromDate();
+			}
+		}
+		if (meterSearchRequest.getToDate() != null) {
+			if (commQuery.isEmpty()) {
+				commQuery = AND_VAL + "dp.updatedDate=" + meterSearchRequest.getToDate();
+			} else {
+				commQuery = commQuery + AND_VAL + "dp.updatedDate=" + meterSearchRequest.getToDate();
+			}
+		}
+		return commQuery;
+	}
 }
