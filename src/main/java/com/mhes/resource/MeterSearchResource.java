@@ -32,52 +32,8 @@ public class MeterSearchResource {
 		
 	//	meterSearchRequest.setCircleAutoid(1);
 		List<DpTimeTable> meterDetails = new ArrayList<DpTimeTable>();
-		
 		List<Object> meterSearchDetails = meterSearchServiceImpl.findAllMeterSearchResults(meterSearchRequest); 
-		
-		
-//		if(meterSearchDetails.size()>0)
-//		{
-//			System.out.println("inside man details");
-//			if(!meterSearchRequest.getManufactureName().isEmpty())
-//			{
-//				List<Object> b = meterSearchDetails.stream() .filter(list -> meterSearchRequest.getManufactureName().equals(
-//						((MrMeterLocation) meterSearchDetails.get(0)).getMrMeterDetails().getVmMeterManufacture().getManufactureName()))
-//					.collect(Collectors.toList());
-//				 b.forEach(c -> System.out.println(((MrMeterLocation) c).getMrMeterDetails().getConnectionStatus()));
-//			}
-//			
-//		}
-//		else
-//		{
-//			System.out.println("inside man details else condition");
-//			 meterDetails = meterSearchServiceImpl.findDptimetableDetails(meterSearchRequest); 
-//		}
-		
 		List<MeterSearchReponse> meterResponse=new ArrayList<MeterSearchReponse>();
-		
-		
-//		meterSearchDetails.forEach(b -> 
-//		meterResponse.get(0).setCircleName(b.getCmCircle().getCircleName())
-//	        );
-		//meterSearchDetails.stream().forEachOrdered(System.out::println);
-				//System.out.println("List of Meter details : "+ meterSearchDetails.get(0).getCompanyAutoid());
-		
-		//meterResponse.set
-		
-		
-		
-//		// List 2 - Mrmeterdetails (pass comapanyAutoid as input)
-//			//List<MrMeterLocation> metermrDetails =
-//			long compannyid= meterSearchDetails.get(0).getCompanyAutoid();
-//			List<MrMeterDetails> meterSearchDetails1= meterSearchServiceImpl.findAllMrMeterDetails(compannyid);
-//			//System.out.println("List of Meter details : "+ meterSearchDetails1.get(0).);
-//		
-//		// List 3 - DpTimetable (pass comapanyAutoid as input)
-//			List<DpTimeTable> meterSearchDetails2= meterSearchServiceImpl.findDptimetableDetails(compannyid);
-//			System.out.println("List of Meter details : "+ meterSearchDetails1.get(0).getMeterName());
-			
-		
 		return ResponseEntity.ok().body(meterDetails);
 	}
 }

@@ -36,6 +36,7 @@ public class MeterSearchRequest implements Serializable {
 	  private long manufactureautoid;
 	  private long yearofManufacture; 
 	  private String meterCategory; 
+	  private String meterType;
 	  private String firmWareVersion; 
 	  private String communicated;
 	  private Date fromDate; 
@@ -217,6 +218,19 @@ public class MeterSearchRequest implements Serializable {
 		 */
 		public void setManufactureautoid(long manufactureautoid) {
 			this.manufactureautoid = manufactureautoid;
+		}
+		 /**
+		 * @return the meterType
+		 */
+		public String getMeterType() {
+			return meterType;
+		}
+
+		/**
+		 * @param meterType the meterType to set
+		 */
+		public void setMeterType(String meterType) {
+			this.meterType = meterType;
 		}
 	 
 }

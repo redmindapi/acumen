@@ -22,10 +22,10 @@ public class MeterSearchRespository implements MeterLocationCustomRepository{
 
 	@PersistenceContext
 	EntityManager entityManager;
-
+	
 	@Override
 	public List<Object> getMeterLocationDetailsByCriteria(String query) {
-		criteriaQuery.append(query);
+		//criteriaQuery.append(query);
 		Query queryString = entityManager.createNativeQuery(criteriaQuery.toString(), MrMeterLocation.class);	
 		return (List<Object>) queryString.getResultList();
 	}
@@ -33,9 +33,39 @@ public class MeterSearchRespository implements MeterLocationCustomRepository{
 	
 	@Override
 	public List<Object> getDpDetailsByCriteria(String query) {
-		
+		entityManager.flush();
 		criteriaQueryMrDetails.append(query);
 		Query queryString = entityManager.createNativeQuery(criteriaQueryDptimetableDetails.toString(), DpTimeTable.class);
 		return (List<Object>) queryString.getResultList();
+	}
+
+
+	@Override
+	public List<Object> getQueryMetermanufacturerByCriteria(String query) {
+		
+		CriteriaQueryMetermanufacturer.append(query);
+		Query queryString = entityManager.createNativeQuery(CriteriaQueryMetermanufacturer.toString(), DpTimeTable.class);
+		return (List<Object>) queryString.getResultList();
+	}
+
+
+	@Override
+	public List<Object> getQueryConnectionstsByCriteria(String query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Object> getQueryQueryMeterGrpByCriteria(String query) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Object> getQueryQueryMeterserailpByCriteria(String query) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
