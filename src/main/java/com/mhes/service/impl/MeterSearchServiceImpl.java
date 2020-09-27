@@ -22,5 +22,4 @@ public class MeterSearchServiceImpl implements MeterSearchService{
 		List<MrMeterLocation> mrMeterLocationList = meterSearchRespository.findAllMeterSearchResults(meterSearchQuery);
 		return mrMeterLocationList;
 	}
-
 }
