@@ -2,7 +2,6 @@ package com.mhes.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,14 +11,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * 
  * @author RedMind
  *
  */
+
 @Entity
 @Table(name = "dptimetable")
 @JsonAutoDetect
@@ -64,6 +64,7 @@ public class DpTimeTable implements Serializable {
 
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name ="meterAutoid", referencedColumnName = "autoid")
+	@JsonIgnore
 	private MrMeterDetails mrMeterDetails;
 	
 	public long getAutoId() {

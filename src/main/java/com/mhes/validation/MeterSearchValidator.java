@@ -1,23 +1,20 @@
 package com.mhes.validation;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
 import com.mhes.util.Utility;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-
 import com.mhes.request.MeterSearchRequest;
-import com.mhes.response.MeterSearchReponse;
 
 /**
 *
 * @author Redmind
 */
-@Service
+
+@Component
 public class MeterSearchValidator extends Utility implements Validator{
 
 	@Override
@@ -56,9 +53,7 @@ public class MeterSearchValidator extends Utility implements Validator{
                     addObjectError(result, "From Date", "From Cannot be greater than To Date", null);
                  }  
         }
-	     
-	   
-		
 	}*/
 	}
+
 }

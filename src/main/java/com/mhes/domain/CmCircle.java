@@ -2,17 +2,12 @@ package com.mhes.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 /**
@@ -20,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
  * @author RedMind
  *
  */
+
 @Entity
 @Table(name = "cmcircle")
 @JsonAutoDetect
@@ -33,19 +29,7 @@ public class CmCircle implements Serializable {
 	@Id // primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
 	@Column(name = "autoid")
-	private long autoId;
-
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "countryAutoid", referencedColumnName = "autoid")
-//	//private CmCountry cmcountry;
-//
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "stateAutoid", referencedColumnName = "autoid")
-//	//private CmState cmstate;
-//
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "districtAutoid", referencedColumnName = "autoid")
-//	private CmDistrict cmdistrict;
+	private Long autoId;
 
 	@Column(name = "circleCode")
 	private String circleCode;
@@ -71,11 +55,11 @@ public class CmCircle implements Serializable {
 	@Column(name = "updatedDate")
 	private LocalDateTime updatedDate;
 
-	public long getAutoId() {
+	public Long getAutoId() {
 		return autoId;
 	}
 
-	public void setAutoId(long autoId) {
+	public void setAutoId(Long autoId) {
 		this.autoId = autoId;
 	}
 

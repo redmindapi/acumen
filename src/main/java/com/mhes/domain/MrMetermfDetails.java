@@ -1,8 +1,8 @@
 package com.mhes.domain;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,16 +12,16 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 /**
  * 
  * @author RedMind
  *
  */
+
 @Entity
 @Table(name = "mrmetermfdetails")
 @JsonAutoDetect
@@ -34,10 +34,10 @@ public class MrMetermfDetails implements Serializable {
 	@Id // primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
 	@Column(name = "autoid")
-	private long autoId;
+	private Long autoId;
 
 	@Column(name = "mfYear")
-	private long mfYear;
+	private Long mfYear;
 	
 	@Column(name = "fwVersion")
 	private String fwVersion;
@@ -83,28 +83,28 @@ public class MrMetermfDetails implements Serializable {
 	/**
 	 * @return the autoId
 	 */
-	public long getAutoId() {
+	public Long getAutoId() {
 		return autoId;
 	}
 
 	/**
 	 * @param autoId the autoId to set
 	 */
-	public void setAutoId(long autoId) {
+	public void setAutoId(Long autoId) {
 		this.autoId = autoId;
 	}
 
 	/**
 	 * @return the mfYear
 	 */
-	public long getMfYear() {
+	public Long getMfYear() {
 		return mfYear;
 	}
 
 	/**
 	 * @param mfYear the mfYear to set
 	 */
-	public void setMfYear(long mfYear) {
+	public void setMfYear(Long mfYear) {
 		this.mfYear = mfYear;
 	}
 

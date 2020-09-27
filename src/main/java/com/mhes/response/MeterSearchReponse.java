@@ -1,21 +1,21 @@
 package com.mhes.response;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
+
 /**
  * 
  * @author RedMind
  *
  */
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
+
 public class MeterSearchReponse implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4282789267559497113L;
-
 	private String meterSerialNumber;
 	private String locationName;
 	private String locationCode;
@@ -24,11 +24,16 @@ public class MeterSearchReponse implements Serializable{
 	private String circleName;
 	private LocalDateTime firstCommDatetime;
 	private LocalDateTime lastCommDatetime;
-	private List<String> errmessage= new ArrayList<>();
-	
-/*	public MeterSearchReponse(String meterSerialNumber, String locationName, String locationCode, String sourceType,
-			String divisionName, String circleName, LocalDateTime firstCommDatetime, LocalDateTime lastCommDatetime) {
-		//super();
+	private List<String> errorMessage;
+
+	public MeterSearchReponse(){
+		
+	}
+
+	public MeterSearchReponse(String meterSerialNumber, String locationName, String locationCode, String sourceType,
+			String divisionName, String circleName, LocalDateTime firstCommDatetime, LocalDateTime lastCommDatetime,
+			List<String> errorMessage) {
+		super();
 		this.meterSerialNumber = meterSerialNumber;
 		this.locationName = locationName;
 		this.locationCode = locationCode;
@@ -37,21 +42,21 @@ public class MeterSearchReponse implements Serializable{
 		this.circleName = circleName;
 		this.firstCommDatetime = firstCommDatetime;
 		this.lastCommDatetime = lastCommDatetime;
-		this.
-	}*/
+		this.errorMessage = errorMessage;
+	}
 
 	/**
-	 * @return the errmessage
+	 * @return the errorMessage
 	 */
-	public List<String> getErrmessage() {
-		return errmessage;
+	public List<String> getErrorMessage() {
+		return errorMessage;
 	}
 
 	/**
 	 * @param string the errmessage to set
 	 */
-	public void setErrmessage(List<String> string) {
-		this.errmessage = string;
+	public void setErrormessage(List<String> errorMessage) {
+		this.errorMessage = errorMessage;
 	}
 
 	public String getMeterSerialNumber() {
@@ -118,21 +123,12 @@ public class MeterSearchReponse implements Serializable{
 		this.lastCommDatetime = lastCommDatetime;
 	}
 
-	public MeterSearchReponse(String meterSerialNumber, String locationName, String locationCode, String sourceType,
-			String divisionName, String circleName, LocalDateTime firstCommDatetime, LocalDateTime lastCommDatetime,
-			List<String> errmessage) {
-		super();
-		this.meterSerialNumber = meterSerialNumber;
-		this.locationName = locationName;
-		this.locationCode = locationCode;
-		this.sourceType = sourceType;
-		this.divisionName = divisionName;
-		this.circleName = circleName;
-		this.firstCommDatetime = firstCommDatetime;
-		this.lastCommDatetime = lastCommDatetime;
-		this.errmessage = errmessage;
+	@Override
+	public String toString() {
+		return "MeterSearchReponse [meterSerialNumber=" + meterSerialNumber + ", locationName=" + locationName
+				+ ", locationCode=" + locationCode + ", sourceType=" + sourceType + ", divisionName=" + divisionName
+				+ ", circleName=" + circleName + ", firstCommDatetime=" + firstCommDatetime + ", lastCommDatetime="
+				+ lastCommDatetime + ", errmessage=" + errorMessage + "]";
 	}
-	
 
-	
 }

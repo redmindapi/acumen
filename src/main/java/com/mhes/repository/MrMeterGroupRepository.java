@@ -19,6 +19,6 @@ import com.mhes.domain.MrMeterGroup;
 @Transactional
 public interface MrMeterGroupRepository extends JpaRepository<MrMeterGroup, Long> {
 	
-	@Query("select autoId,companyAutoid from MrMeterGroup where groupName=:groupName")
+	@Query("select groupCode,groupName from MrMeterGroup where groupName=:groupName")
     List<Object>  findByMeterGroup(String groupName);
 }

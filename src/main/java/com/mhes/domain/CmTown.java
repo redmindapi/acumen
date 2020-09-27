@@ -2,14 +2,12 @@ package com.mhes.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 /**
@@ -17,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
  * @author RedMind
  *
  */
+
 @Entity
 @Table(name = "cmtown")
 @JsonAutoDetect
@@ -30,35 +29,7 @@ public class CmTown implements Serializable {
 	@Id // primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
 	@Column(name = "autoid")
-	private long autoId;
-
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "countryAutoid", referencedColumnName = "autoid")
-//	private CmCountry cmcountry;
-//
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "stateAutoid", referencedColumnName = "autoid")
-//	private CmState cmstate;
-//
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "districtAutoid", referencedColumnName = "autoid")
-//	private CmDistrict cmdistrict;
-//
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "circleAutoid", referencedColumnName = "autoid")
-//	private CmCircle cmcircle;
-//	
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "divisionAutoid", referencedColumnName = "autoid")
-//	private CmDivision cmdivision;
-//	
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "subdivisionAutoid", referencedColumnName = "autoid")
-//	private CmSubDivision cmsubdivision;
-//	
-//	@ManyToOne(cascade = CascadeType.ALL)
-//	@JoinColumn(name = "sectionAutoid", referencedColumnName = "autoid")
-//	private CmSection cmsection;
+	private Long autoId;
 
 	@Column(name = "circleAutoid")
 	private long circleAutoid;
@@ -96,22 +67,11 @@ public class CmTown implements Serializable {
 	@Column(name = "updatedDate")
 	private LocalDateTime updatedDate;
 
-//	@Column(name = "circleAutoid")
-//	private  String circleAutoid;
-//	
-//	public String getCircleAutoid() {
-//		return circleAutoid;
-//	}
-//
-//	public void setCircleAutoid(String circleAutoid) {
-//		this.circleAutoid = circleAutoid;
-//	}
-
-	public long getAutoId() {
+	public Long getAutoId() {
 		return autoId;
 	}
 
-	public void setAutoId(long autoId) {
+	public void setAutoId(Long autoId) {
 		this.autoId = autoId;
 	}
 

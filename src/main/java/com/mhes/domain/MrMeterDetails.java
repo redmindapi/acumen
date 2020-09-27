@@ -1,13 +1,8 @@
-/**
- * 
- */
 package com.mhes.domain;
 
 import javax.persistence.*;
-
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.time.LocalDateTime;
 import java.util.List;
 import java.io.Serializable;
@@ -16,6 +11,7 @@ import java.io.Serializable;
  * @author SureshKumar
  *
  */
+
 @Entity
 @Table(name = "mrmeterdetails")
 @JsonAutoDetect
@@ -54,8 +50,6 @@ public class MrMeterDetails implements Serializable {
 	@JoinColumn(name ="companyAutoid", referencedColumnName = "autoid")
 	private VmCompanyProfile vmCompanyProfile;
 
-	//@OneToMany(cascade = CascadeType.ALL)
-	@JsonIgnore
 	@OneToMany(mappedBy = "mrMeterDetails", cascade = {CascadeType.ALL})
 	private List<DpTimeTable> dpTimeTable;
 	
@@ -344,16 +338,16 @@ public class MrMeterDetails implements Serializable {
 	/**
 	 * @return the mrMetermfDetails
 	 */
-//	public List<MrMetermfDetails> getMrMetermfDetails() {
-//		return MrMetermfDetails;
-//	}
-//
-//	/**
-//	 * @param mrMetermfDetails the mrMetermfDetails to set
-//	 */
-//	public void setMrMetermfDetails(List<MrMetermfDetails> mrMetermfDetails) {
-//		MrMetermfDetails = mrMetermfDetails;
-//	}
+	public List<MrMetermfDetails> getMrMetermfDetails() {
+		return MrMetermfDetails;
+	}
+
+	/**
+	 * @param mrMetermfDetails the mrMetermfDetails to set
+	 */
+	public void setMrMetermfDetails(List<MrMetermfDetails> mrMetermfDetails) {
+		MrMetermfDetails = mrMetermfDetails;
+	}
 
 	@Override
 	public String toString() {
