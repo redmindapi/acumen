@@ -26,7 +26,7 @@ public class MeterResource {
     private MrMeterDetailsService mrMeterDetailsService;
 
 	@PostMapping("/saveMeterDetails")
-	public ResponseEntity<MeterResponse> save(@Validated @RequestBody MeterRequest addMeterRequest){
+	public ResponseEntity<MeterResponse> save(@RequestBody MeterRequest addMeterRequest){
 
 		MeterResponse meterResponse = new MeterResponse();
 		try {
@@ -47,7 +47,7 @@ public class MeterResource {
     }
 
 	@PutMapping("/updateMeterDetails/{meterId}")
-	public ResponseEntity<MeterResponse> update(@PathParam("meterId") String meterId, @Validated @RequestBody MeterRequest updateMeterRequest){
+	public ResponseEntity<MeterResponse> update(@PathParam("meterId") String meterId, @RequestBody MeterRequest updateMeterRequest){
 
 		MeterResponse meterResponse = mrMeterDetailsService.save(updateMeterRequest);
         return ResponseEntity.ok().body(meterResponse);

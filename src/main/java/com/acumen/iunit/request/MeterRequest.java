@@ -52,7 +52,11 @@ public class MeterRequest implements Serializable{
 	private String serialPort;
 	private String connectionStatusConnInfo;
 	private String vmMeterManufactureAutoId;
-	 
+
+	public MeterRequest() {
+
+	}
+
 	public MeterRequest(String meterSerialNumber, String deviceId, String ipAddress, String currentRating,
 			String connectionStatus, String simNumber, Long mfYear, String fwVersion, String meterType,
 			String meterCategory, BigDecimal voltageMultipiler, BigDecimal currentMultipiler,
