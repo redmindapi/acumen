@@ -1,0 +1,43 @@
+package com.acumen.iunit.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.acumen.iunit.domain.CmSubStation;
+import com.acumen.iunit.repository.CmSubStationRepository;
+import com.acumen.iunit.service.CmSubStationService;
+
+/**
+ * 
+ * @author RedMind
+ *
+ */
+@Service
+public class CmSubStationServiceImpl implements CmSubStationService {
+
+	@Autowired
+	private CmSubStationRepository cmSubStationRepository;
+
+	@Override
+	public List<CmSubStation> findAll() {
+
+		return cmSubStationRepository.findAll();
+	}
+
+	@Override
+	public List<Object> findBySubStationName(String subStationName) {
+
+		return cmSubStationRepository.findBySubStationName(subStationName);
+	}
+
+	@Override
+	public List<Object> findByCirNameAndDivNameAndSubDivNameAndSecNameAndTownName(long circleAutoid,
+			long divisionAutoid, long subdivisionAutoid, long sectionAutoid, long townAutoid) {
+
+		return cmSubStationRepository.findByCirNameAndDivNameAndSubDivNameAndSecNameAndTownName(circleAutoid,
+				divisionAutoid, subdivisionAutoid, sectionAutoid, townAutoid);
+	}
+
+}
