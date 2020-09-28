@@ -8,21 +8,16 @@ import java.math.BigDecimal;
  * @author RedMind
  *
  */
+
 public class MeterRequest implements Serializable{
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = -9105232198395924224L;
-	
-	
 	private String meterSerialNumber;
 	private String deviceId;
 	private String ipAddress;
 	private String currentRating;
 	private String connectionStatus;
 	private String simNumber;
-	
 	private Long mfYear;
 	private String fwVersion;
 	private String meterType;
@@ -30,47 +25,44 @@ public class MeterRequest implements Serializable{
 	private BigDecimal  voltageMultipiler;
 	private BigDecimal currentMultipiler;
 	private BigDecimal energyMultipiler;
-	
 	private String commonValue;
-	private String commonValueInstallType;
-	private String commonValueSubType;
+	private String commonValueInstallationType;
+	private String commonValueInstallationSubType;
 	private String commonValueSourceType;
-	
-	private String circleName;
-	private String divisionName;
-	private String subdivisionName;
-	private String sectionName;
-	private String townName;
-	private String subStationName;
-	private String feederName;
-	private String transformerName;
-	
+	private String circleId;
+	private String divisionId;
+	private String subDivisionId;
+	private String sectionId;
+	private String townId;
+	private String subStationId;
+	private String feederId;
+	private String transformerId;
 	private String longitude;
 	private String latitude;
-	
-	 private String meterIp;
-	 private String meterPort;
-	 private String aunthenticationType;
-	 private String meterPassword;
-	 private String systemTitle;
-	 private String blockCipherKey;
-	 private String authenticationKey;
-	 private String referencingName;
-	 private String isWrapper;
-	 private String iec;
-	 private String serialPort;
-	 private String connectionStatusConnInfo;
+	private String meterIp;
+	private String meterPort;
+	private String aunthenticationType;
+	private String meterPassword;
+	private String systemTitle;
+	private String blockCipherKey;
+	private String authenticationKey;
+	private String referencingName;
+	private String isWrapper;
+	private String iec;
+	private String serialPort;
+	private String connectionStatusConnInfo;
+	private String vmMeterManufactureAutoId;
 	 
 	public MeterRequest(String meterSerialNumber, String deviceId, String ipAddress, String currentRating,
 			String connectionStatus, String simNumber, Long mfYear, String fwVersion, String meterType,
 			String meterCategory, BigDecimal voltageMultipiler, BigDecimal currentMultipiler,
-			BigDecimal energyMultipiler, String commonValue, String commonValueInstallType, String commonValueSubType,
-			String commonValueSourceType, String circleName, String divisionName, String subdivisionName,
-			String sectionName, String townName, String subStationName, String feederName, String transformerName,
+			BigDecimal energyMultipiler, String commonValue, String commonValueInstallationType, String commonValueInstallationSubType,
+			String commonValueSourceType, String circleId, String divisionId, String subDivisionId,
+			String sectionId, String townId, String subStationId, String feederId, String transformerId,
 			String longitude, String latitude, String meterIp, String meterPort, String aunthenticationType,
 			String meterPassword, String systemTitle, String blockCipherKey, String authenticationKey,
-			String referencingName, String isWrapper, String iec, String serialPort, String connectionStatusConnInfo) {
-		//super();
+			String referencingName, String isWrapper, String iec, String serialPort, String connectionStatusConnInfo,
+			String vmMeterManufactureAutoId) {
 		this.meterSerialNumber = meterSerialNumber;
 		this.deviceId = deviceId;
 		this.ipAddress = ipAddress;
@@ -85,17 +77,17 @@ public class MeterRequest implements Serializable{
 		this.currentMultipiler = currentMultipiler;
 		this.energyMultipiler = energyMultipiler;
 		this.commonValue = commonValue;
-		this.commonValueInstallType = commonValueInstallType;
-		this.commonValueSubType = commonValueSubType;
+		this.commonValueInstallationType = commonValueInstallationType;
+		this.commonValueInstallationSubType = commonValueInstallationSubType;
 		this.commonValueSourceType = commonValueSourceType;
-		this.circleName = circleName;
-		this.divisionName = divisionName;
-		this.subdivisionName = subdivisionName;
-		this.sectionName = sectionName;
-		this.townName = townName;
-		this.subStationName = subStationName;
-		this.feederName = feederName;
-		this.transformerName = transformerName;
+		this.circleId = circleId;
+		this.divisionId = divisionId;
+		this.subDivisionId = subDivisionId;
+		this.sectionId = sectionId;
+		this.townId = townId;
+		this.subStationId = subStationId;
+		this.feederId = feederId;
+		this.transformerId = transformerId;
 		this.longitude = longitude;
 		this.latitude = latitude;
 		this.meterIp = meterIp;
@@ -110,6 +102,7 @@ public class MeterRequest implements Serializable{
 		this.iec = iec;
 		this.serialPort = serialPort;
 		this.connectionStatusConnInfo = connectionStatusConnInfo;
+		this.vmMeterManufactureAutoId = vmMeterManufactureAutoId;
 	}
 
 	public String getMeterSerialNumber() {
@@ -224,20 +217,20 @@ public class MeterRequest implements Serializable{
 		this.commonValue = commonValue;
 	}
 
-	public String getCommonValueInstallType() {
-		return commonValueInstallType;
+	public String getCommonValueInstallationType() {
+		return commonValueInstallationType;
 	}
 
-	public void setCommonValueInstallType(String commonValueInstallType) {
-		this.commonValueInstallType = commonValueInstallType;
+	public void setCommonValueInstallationType(String commonValueInstallationType) {
+		this.commonValueInstallationType = commonValueInstallationType;
 	}
 
-	public String getCommonValueSubType() {
-		return commonValueSubType;
+	public String getCommonValueInstallationSubType() {
+		return commonValueInstallationSubType;
 	}
 
-	public void setCommonValueSubType(String commonValueSubType) {
-		this.commonValueSubType = commonValueSubType;
+	public void setCommonValueInstallationSubType(String commonValueInstallationSubType) {
+		this.commonValueInstallationSubType = commonValueInstallationSubType;
 	}
 
 	public String getCommonValueSourceType() {
@@ -248,68 +241,68 @@ public class MeterRequest implements Serializable{
 		this.commonValueSourceType = commonValueSourceType;
 	}
 
-	public String getCircleName() {
-		return circleName;
+	public String getCircleId() {
+		return circleId;
 	}
 
-	public void setCircleName(String circleName) {
-		this.circleName = circleName;
+	public void setCircleName(String circleId) {
+		this.circleId = circleId;
 	}
 
-	public String getDivisionName() {
-		return divisionName;
+	public String getDivisionId() {
+		return divisionId;
 	}
 
-	public void setDivisionName(String divisionName) {
-		this.divisionName = divisionName;
+	public void setDivisionId(String divisionId) {
+		this.divisionId = divisionId;
 	}
 
-	public String getSubdivisionName() {
-		return subdivisionName;
+	public String getSubDivisionId() {
+		return subDivisionId;
 	}
 
-	public void setSubdivisionName(String subdivisionName) {
-		this.subdivisionName = subdivisionName;
+	public void setSubDivisionId(String subDivisionId) {
+		this.subDivisionId = subDivisionId;
 	}
 
-	public String getSectionName() {
-		return sectionName;
+	public String getSectionId() {
+		return sectionId;
 	}
 
-	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+	public void setSectionId(String sectionId) {
+		this.sectionId = sectionId;
 	}
 
-	public String getTownName() {
-		return townName;
+	public String getTownId() {
+		return townId;
 	}
 
-	public void setTownName(String townName) {
-		this.townName = townName;
+	public void setTownId(String townId) {
+		this.townId = townId;
 	}
 
-	public String getSubStationName() {
-		return subStationName;
+	public String getSubStationId() {
+		return subStationId;
 	}
 
-	public void setSubStationName(String subStationName) {
-		this.subStationName = subStationName;
+	public void setSubStationId(String subStationId) {
+		this.subStationId = subStationId;
 	}
 
-	public String getFeederName() {
-		return feederName;
+	public String getFeederId() {
+		return feederId;
 	}
 
-	public void setFeederName(String feederName) {
-		this.feederName = feederName;
+	public void setFeederId(String feederId) {
+		this.feederId = feederId;
 	}
 
-	public String getTransformerName() {
-		return transformerName;
+	public String getTransformerId() {
+		return transformerId;
 	}
 
-	public void setTransformerName(String transformerName) {
-		this.transformerName = transformerName;
+	public void setTransformerId(String transformerId) {
+		this.transformerId = transformerId;
 	}
 
 	public String getLongitude() {
@@ -424,6 +417,20 @@ public class MeterRequest implements Serializable{
 		this.connectionStatusConnInfo = connectionStatusConnInfo;
 	}
 
+	/**
+	 * @return the vmMeterManufactureAutoId
+	 */
+	public String getVmMeterManufactureAutoId() {
+		return vmMeterManufactureAutoId;
+	}
+
+	/**
+	 * @param vmMeterManufactureAutoId the vmMeterManufactureAutoId to set
+	 */
+	public void setVmMeterManufactureAutoId(String vmMeterManufactureAutoId) {
+		this.vmMeterManufactureAutoId = vmMeterManufactureAutoId;
+	}
+
 	@Override
 	public String toString() {
 		return "AddMeterRequest [meterSerialNumber=" + meterSerialNumber + ", deviceId=" + deviceId + ", ipAddress="
@@ -431,16 +438,17 @@ public class MeterRequest implements Serializable{
 				+ ", simNumber=" + simNumber + ", mfYear=" + mfYear + ", fwVersion=" + fwVersion + ", meterType="
 				+ meterType + ", meterCategory=" + meterCategory + ", voltageMultipiler=" + voltageMultipiler
 				+ ", currentMultipiler=" + currentMultipiler + ", energyMultipiler=" + energyMultipiler
-				+ ", commonValue=" + commonValue + ", commonValueInstallType=" + commonValueInstallType
-				+ ", commonValueSubType=" + commonValueSubType + ", commonValueSourceType=" + commonValueSourceType
-				+ ", circleName=" + circleName + ", divisionName=" + divisionName + ", subdivisionName="
-				+ subdivisionName + ", sectionName=" + sectionName + ", townName=" + townName + ", subStationName="
-				+ subStationName + ", feederName=" + feederName + ", transformerName=" + transformerName
+				+ ", commonValue=" + commonValue + ", commonValueInstallationType=" + commonValueInstallationType
+				+ ", commonValueInstallationSubType=" + commonValueInstallationSubType + ", commonValueSourceType=" + commonValueSourceType
+				+ ", circleId=" + circleId + ", divisionId=" + divisionId + ", subDivisionId="
+				+ subDivisionId + ", sectionId=" + sectionId + ", townId=" + townId + ", subStationId="
+				+ subStationId + ", feederId=" + feederId + ", transformerId=" + transformerId
 				+ ", longitude=" + longitude + ", latitude=" + latitude + ", meterIp=" + meterIp + ", meterPort="
 				+ meterPort + ", aunthenticationType=" + aunthenticationType + ", meterPassword=" + meterPassword
 				+ ", systemTitle=" + systemTitle + ", blockCipherKey=" + blockCipherKey + ", authenticationKey="
 				+ authenticationKey + ", referencingName=" + referencingName + ", isWrapper=" + isWrapper + ", iec="
-				+ iec + ", serialPort=" + serialPort + ", connectionStatusConnInfo=" + connectionStatusConnInfo + "]";
+				+ iec + ", serialPort=" + serialPort + ", connectionStatusConnInfo=" + connectionStatusConnInfo
+				+ ", vmMeterManufactureAutoId="+ vmMeterManufactureAutoId + "]";
 	}
 	 
 	 

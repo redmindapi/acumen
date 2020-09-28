@@ -13,6 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface VmMeterManufactureRepository extends JpaRepository<VmMeterManufacture, Long>{
 
-	@Query("select manufactureName ,companyAutoId from VmMeterManufacture where manufactureName LIKE %:manufactureName%")
-	List<Object> findBymanufactureName(String manufactureName);
+	@Query("select autoId,manufactureName from VmMeterManufacture where manufactureName LIKE %:manufactureName%")
+	List<Object> findByManufactureName(String manufactureName);
 }

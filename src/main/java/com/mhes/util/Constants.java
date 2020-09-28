@@ -1,5 +1,6 @@
 package com.mhes.util;
 
+import java.math.BigDecimal;
 import java.util.Locale;
 
 public interface Constants {
@@ -43,4 +44,8 @@ public interface Constants {
 	public static final String METER_SEARCH_RESULTS = "Please provie valid input criteria to search meter results";
 	public static final String NO_METER_SEARCH_RESULTS = "No Meters found for the given input criteria. Please provide valid search inputs";
 	public static final String METER_SEARCH_RESULTS_EXCEPTION = "Exception occured at server side, please check logs for more details";
+	public static final BigDecimal DEFAULT_BIG_DECIMAL = new BigDecimal(0.0);
+	public static final String ADD_METER_SUCCESS_MESSAGE = "Add Meter request successfully completed.";
+	public static final String ADD_METER_FAILURE_MESSAGE = "Sorry, we are not able to complete your request, please check your request details again and provide valid "
+			+ "details";
 }

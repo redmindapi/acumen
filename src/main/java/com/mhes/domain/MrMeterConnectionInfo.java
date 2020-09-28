@@ -34,7 +34,7 @@ public class MrMeterConnectionInfo implements Serializable {
 	@Id                                                     // primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)     // auto increment
     @Column(name = "autoid")
-    private long autoId;
+    private Long autoId;
 	
 
 	//@Column(name = "companyAutoid")
@@ -101,11 +101,11 @@ public class MrMeterConnectionInfo implements Serializable {
 	@Column(name = "updatedDate")
 	private LocalDateTime updatedDate;
 
-	public long getAutoId() {
+	public Long getAutoId() {
 		return autoId;
 	}
 
-	public void setAutoId(long autoId) {
+	public void setAutoId(Long autoId) {
 		this.autoId = autoId;
 	}
 

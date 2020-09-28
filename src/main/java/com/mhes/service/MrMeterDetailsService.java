@@ -1,9 +1,8 @@
-/**
- * 
- */
 package com.mhes.service;
 
 import com.mhes.domain.MrMeterDetails;
+import com.mhes.request.MeterRequest;
+import com.mhes.response.MeterResponse;
 import java.util.List;
 
 /**
@@ -13,9 +12,12 @@ import java.util.List;
 
 public interface MrMeterDetailsService {
 
-	//List<MrMeterDetails> findMrMeterDetailsByMeterSerialNumberAndManufactureAutoIdAndCompanyAutoId(String meterSerialNumber, int manufactureAutoId, int companyAutoId);
     List<MrMeterDetails> findAll();
-    MrMeterDetails save(MrMeterDetails mrMeterDetails);
+
     public List<Object> findByMrMeterDetails(String meterSerialnumber);
+
     public List<Object> findByconnectionStatus(String connectionStatus);
+
+    public MeterResponse save(MeterRequest addMeterRequest);
+
 }

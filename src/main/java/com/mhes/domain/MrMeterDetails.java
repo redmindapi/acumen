@@ -25,7 +25,7 @@ public class MrMeterDetails implements Serializable {
 	@Id                                                     // primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)     // auto increment
     @Column(name = "autoid")
-    private long autoId;
+    private Long autoId;
 	
 	@Column(name = "meterSerialNumber")
 	private String meterSerialNumber;
@@ -109,11 +109,11 @@ public class MrMeterDetails implements Serializable {
 	private String currentRating;
 	
 
-	public long getAutoId() {
+	public Long getAutoId() {
 		return autoId;
 	}
 
-	public void setAutoId(long autoId) {
+	public void setAutoId(Long autoId) {
 		this.autoId = autoId;
 	}
 

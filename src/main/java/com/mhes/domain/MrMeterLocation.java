@@ -33,16 +33,16 @@ public class MrMeterLocation implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
 	@Column(name = "autoid")
-	private long autoid;
+	private Long autoid;
 
-	@Column(name = "countryAutoid")
-	private long countryAutoid;
-
-	@Column(name = "stateAutoid")
-	private long stateAutoid;
-	
-	@Column(name = "districtAutoid")
-	private long districtAutoid;
+//	@Column(name = "countryAutoid")
+//	private long countryAutoid;
+//
+//	@Column(name = "stateAutoid")
+//	private long stateAutoid;
+//	
+//	@Column(name = "districtAutoid")
+//	private long districtAutoid;
 	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name ="circleAutoid", referencedColumnName = "autoid")
@@ -77,7 +77,8 @@ public class MrMeterLocation implements Serializable {
 	private CmTransformer cmTransformer;
 
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name ="meterdetailsautoid", referencedColumnName = "autoid")
+	//@JoinColumn(name ="meterdetailsautoid", referencedColumnName = "autoid")
+	@JoinColumn(name ="meterDetailsAutoid", referencedColumnName = "autoid")
 	private MrMeterDetails mrMeterDetails;
 
 	@Column(name = "lacationCode")
@@ -98,8 +99,8 @@ public class MrMeterLocation implements Serializable {
 	@Column(name = "status")
 	private String status;
 	
-	@Column(name = "meterDetailsAutoid")
-	private String meterDetailsAutoid;
+//	@Column(name = "meterDetailsAutoid")
+//	private String meterDetailsAutoid;
 	
 	@Column(name = "insertedBy")
 	private String insertedBy;
@@ -125,14 +126,14 @@ public class MrMeterLocation implements Serializable {
 	/**
 	 * @return the autoid
 	 */
-	public long getAutoid() {
+	public Long getAutoid() {
 		return autoid;
 	}
 
 	/**
 	 * @param autoid the autoid to set
 	 */
-	public void setAutoid(long autoid) {
+	public void setAutoid(Long autoid) {
 		this.autoid = autoid;
 	}
 
@@ -223,16 +224,16 @@ public class MrMeterLocation implements Serializable {
 	/**
 	 * @return the meterDetailsAutoid
 	 */
-	public String getMeterDetailsAutoid() {
-		return meterDetailsAutoid;
-	}
-
-	/**
-	 * @param meterDetailsAutoid the meterDetailsAutoid to set
-	 */
-	public void setMeterDetailsAutoid(String meterDetailsAutoid) {
-		this.meterDetailsAutoid = meterDetailsAutoid;
-	}
+//	public String getMeterDetailsAutoid() {
+//		return meterDetailsAutoid;
+//	}
+//
+//	/**
+//	 * @param meterDetailsAutoid the meterDetailsAutoid to set
+//	 */
+//	public void setMeterDetailsAutoid(String meterDetailsAutoid) {
+//		this.meterDetailsAutoid = meterDetailsAutoid;
+//	}
 
 	/**
 	 * @return the insertedBy
@@ -337,16 +338,16 @@ public class MrMeterLocation implements Serializable {
 	/**
 	 * @return the countryCode
 	 */
-	public long getCountryAutoid() {
-		return countryAutoid;
-	}
-
-	/**
-	 * @param countryCode the countryCode to set
-	 */
-	public void setCountryAutoid(long countryAutoid) {
-		this.countryAutoid = countryAutoid;
-	}
+//	public long getCountryAutoid() {
+//		return countryAutoid;
+//	}
+//
+//	/**
+//	 * @param countryCode the countryCode to set
+//	 */
+//	public void setCountryAutoid(long countryAutoid) {
+//		this.countryAutoid = countryAutoid;
+//	}
 
 	/**
 	 * @return the cmDivision
@@ -435,29 +436,29 @@ public class MrMeterLocation implements Serializable {
 	/**
 	 * @return the stateAutoid
 	 */
-	public long getStateAutoid() {
-		return stateAutoid;
-	}
-
-	/**
-	 * @param stateAutoid the stateAutoid to set
-	 */
-	public void setStateAutoid(long stateAutoid) {
-		this.stateAutoid = stateAutoid;
-	}
-
-	/**
-	 * @return the districtAutoid
-	 */
-	public long getDistrictAutoid() {
-		return districtAutoid;
-	}
-
-	/**
-	 * @param districtAutoid the districtAutoid to set		 */
-	public void setDistrictAutoid(long districtAutoid) {
-	this.districtAutoid = districtAutoid;
-	}
+//	public long getStateAutoid() {
+//		return stateAutoid;
+//	}
+//
+//	/**
+//	 * @param stateAutoid the stateAutoid to set
+//	 */
+//	public void setStateAutoid(long stateAutoid) {
+//		this.stateAutoid = stateAutoid;
+//	}
+//
+//	/**
+//	 * @return the districtAutoid
+//	 */
+//	public long getDistrictAutoid() {
+//		return districtAutoid;
+//	}
+//
+//	/**
+//	 * @param districtAutoid the districtAutoid to set		 */
+//	public void setDistrictAutoid(long districtAutoid) {
+//	this.districtAutoid = districtAutoid;
+//	}
 
 	/**
 	 * @return the cmCircle

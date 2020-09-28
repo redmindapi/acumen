@@ -28,7 +28,7 @@ public class VmMeterManufacture implements Serializable {
 	@Id // primary key
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
 	@Column(name = "autoid")
-	private long autoId;
+	private Long autoId;
 
 	@Column(name = "manufactureCode")
 	private String manufactureCode;
@@ -63,11 +63,11 @@ public class VmMeterManufacture implements Serializable {
 	@OneToMany(mappedBy = "vmMeterManufacture", cascade = {CascadeType.ALL})
 	private List<MrMeterDetails> mrMeterDetails;
 
-	public long getAutoId() {
+	public Long getAutoId() {
 		return autoId;
 	}
 
-	public void setAutoId(long autoId) {
+	public void setAutoId(Long autoId) {
 		this.autoId = autoId;
 	}
 
