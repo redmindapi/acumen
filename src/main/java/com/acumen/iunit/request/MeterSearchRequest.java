@@ -42,7 +42,11 @@ public class MeterSearchRequest implements Serializable {
 	private LocalDateTime toDate;
 	private String meterGroup;
 	private String meterSerialNumber;
-	
+
+	public MeterSearchRequest() {
+
+	}
+
 	public MeterSearchRequest(String circleAutoid, String circleName, String divisionAutoid, String divisionName,
 			String subdivisionAutoid, String subdivisionName, String sectionAutoid, String sectionName, String townAutoid,
 			String townName, String substationAutoid, String subStationName, String feederAutoid, String feederName,

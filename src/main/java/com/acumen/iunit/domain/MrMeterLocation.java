@@ -81,10 +81,10 @@ public class MrMeterLocation implements Serializable {
 	@JoinColumn(name ="meterDetailsAutoid", referencedColumnName = "autoid")
 	private MrMeterDetails mrMeterDetails;
 
-	@Column(name = "lacationCode")
+	@Column(name = "locationCode")
 	private String lacationCode;
 
-	@Column(name = "lacationName")
+	@Column(name = "locationName")
 	private String lacationName;
 
 	@Column(name = "latitude")

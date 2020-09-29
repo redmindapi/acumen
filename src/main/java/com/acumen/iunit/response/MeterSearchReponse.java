@@ -27,7 +27,7 @@ public class MeterSearchReponse implements Serializable{
 	private List<String> errorMessage;
 
 	public MeterSearchReponse(){
-		
+
 	}
 
 	public MeterSearchReponse(String meterSerialNumber, String locationName, String locationCode, String sourceType,
