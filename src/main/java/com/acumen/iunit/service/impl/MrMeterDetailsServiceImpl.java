@@ -249,5 +249,9 @@ public class MrMeterDetailsServiceImpl implements MrMeterDetailsService{
 
 		return  mrMeterDetailsRepository.findByconnectionStatus(connectionStatus);
 	}
-
+	@Override
+	public  MrMeterDetails findByMeteAutoId(Long id){
+		return  mrMeterDetailsRepository.findByMeteAutoId(id);
+	}
+	
 }

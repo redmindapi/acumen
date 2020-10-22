@@ -35,7 +35,7 @@ public class CmDivisionResource {
 	}
 
 	@GetMapping("/getDivisionNameByCircleAutoId")
-	public ResponseEntity<List<Object>> getDivisionNameByCircleAutoId(@RequestParam int circleAutoid) {
+	public ResponseEntity<List<Object>> getDivisionNameByCircleAutoId(@RequestParam Long circleAutoid) {
 		List<Object> cmDivisionDetails = cmDivisionService.findDivisionNameBycircleAutoid(circleAutoid);
 		return ResponseEntity.ok().body(cmDivisionDetails);
 	}

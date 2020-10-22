@@ -48,4 +48,5 @@ public interface Constants {
 	public static final String ADD_METER_SUCCESS_MESSAGE = "Add Meter request successfully completed.";
 	public static final String ADD_METER_FAILURE_MESSAGE = "Sorry, we are not able to complete your request, please check your request details again and provide valid "
 			+ "details";
+	public static final String METER_EDETAILS_NOT_FOUND_MESSAGE="Meter details are not found for corresponding meterid";
 }

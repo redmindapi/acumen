@@ -14,6 +14,6 @@ public interface CmDivisionService {
 
 	List<Object> findByDivisionName(String divisionName);
 
-	List<Object> findDivisionNameBycircleAutoid(long circleAutoid);
+	List<Object> findDivisionNameBycircleAutoid(Long circleAutoid);
 
 }

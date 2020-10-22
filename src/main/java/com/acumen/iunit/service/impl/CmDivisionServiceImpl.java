@@ -32,7 +32,7 @@ public class CmDivisionServiceImpl implements CmDivisionService {
 	}
 
 	@Override
-	public List<Object> findDivisionNameBycircleAutoid(long circleAutoid) {
+	public List<Object> findDivisionNameBycircleAutoid(Long circleAutoid) {
 
 		return cmDivisionRepository.findDivisionNameBycircleAutoid(circleAutoid);
 	}

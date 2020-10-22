@@ -21,5 +21,5 @@ public interface CmDivisionRepository extends JpaRepository<CmDivision, Long> {
 	public List<Object> findByDivisionName(String divisionName);
 
 	@Query("select autoId,divisionName from CmDivision where circleAutoid=:circleAutoid")
-	List<Object> findDivisionNameBycircleAutoid(long circleAutoid);
+	List<Object> findDivisionNameBycircleAutoid(Long circleAutoid);
 }

@@ -47,9 +47,24 @@ public class MeterResource {
     }
 
 	@PutMapping("/updateMeterDetails/{meterId}")
-	public ResponseEntity<MeterResponse> update(@PathParam("meterId") String meterId, @RequestBody MeterRequest updateMeterRequest){
-
-		MeterResponse meterResponse = mrMeterDetailsService.save(updateMeterRequest);
+	public ResponseEntity<MeterResponse> update(@PathVariable Long meterId,@RequestBody MeterRequest updateMeterRequest){
+	// MrMeterDetails updateMeterRequest =  mrMeterDetailsService.findByMeteAutoId(meterId);@PathParam(
+		MeterResponse meterResponse = new MeterResponse();
+		try {
+			
+			MrMeterDetails updateMeterDetails =  mrMeterDetailsService.findByMeteAutoId(meterId);
+			
+			if(null !=updateMeterDetails && !updateMeterDetails.toString().isEmpty()) {
+				updateMeterRequest.setMeterAutoId(meterId);
+				meterResponse = mrMeterDetailsService.save(updateMeterRequest);
+			}
+			else
+				meterResponse.setMessage(Constants.METER_EDETAILS_NOT_FOUND_MESSAGE);
+			
+		}catch(Exception addMeterException) {
+			meterResponse.setMessage(Constants.METER_SEARCH_RESULTS_EXCEPTION);
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(meterResponse);
+		}
         return ResponseEntity.ok().body(meterResponse);
     }
 

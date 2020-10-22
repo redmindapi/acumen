@@ -20,5 +20,6 @@ public interface MrMeterDetailsService {
     public List<Object> findByconnectionStatus(String connectionStatus);
 
     public MeterResponse save(MeterRequest addMeterRequest);
-
+    
+   public MrMeterDetails findByMeteAutoId(Long id);
 }

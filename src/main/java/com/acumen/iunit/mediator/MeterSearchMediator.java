@@ -403,11 +403,14 @@ public class MeterSearchMediator implements Constants{
 	
 	private List<DpTimeTable> getMatchedDpTimeTableList(MeterSearchRequest meterSearchRequest, List<DpTimeTable> dpTimeTableList) {
 
+		if(null != meterSearchRequest.getFromDate() && null != meterSearchRequest.getToDate()) {
 		List<DpTimeTable> matchedDpTimeTableList = dpTimeTableList.stream().filter(list -> list.getFirstCommDatetime().equals(meterSearchRequest.getFromDate()) &&
 				list.getLastCommDatetime().equals(meterSearchRequest.getToDate()))
 				.collect(Collectors.toList());
-
+   
 		return matchedDpTimeTableList;
+		}
+		return dpTimeTableList;
 	}
 	
 	private MeterSearchInputCriteria checkInputCriteria(MeterSearchRequest meterSearchRequest, MeterSearchInputCriteria meterSearchInputCriteria) {

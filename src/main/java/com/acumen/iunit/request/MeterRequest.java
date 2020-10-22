@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 public class MeterRequest implements Serializable{
 
 	private static final long serialVersionUID = -9105232198395924224L;
+	private Long  meterAutoId;
 	private String meterSerialNumber;
 	private String deviceId;
 	private String ipAddress;
@@ -66,7 +67,7 @@ public class MeterRequest implements Serializable{
 			String longitude, String latitude, String meterIp, String meterPort, String aunthenticationType,
 			String meterPassword, String systemTitle, String blockCipherKey, String authenticationKey,
 			String referencingName, String isWrapper, String iec, String serialPort, String connectionStatusConnInfo,
-			String vmMeterManufactureAutoId) {
+			String vmMeterManufactureAutoId,Long  meterAutoId) {
 		this.meterSerialNumber = meterSerialNumber;
 		this.deviceId = deviceId;
 		this.ipAddress = ipAddress;
@@ -107,6 +108,15 @@ public class MeterRequest implements Serializable{
 		this.serialPort = serialPort;
 		this.connectionStatusConnInfo = connectionStatusConnInfo;
 		this.vmMeterManufactureAutoId = vmMeterManufactureAutoId;
+		this.meterAutoId=meterAutoId;
+	}
+
+	public Long getMeterAutoId() {
+		return meterAutoId;
+	}
+
+	public void setMeterAutoId(Long meterAutoId) {
+		this.meterAutoId = meterAutoId;
 	}
 
 	public String getMeterSerialNumber() {
@@ -247,6 +257,9 @@ public class MeterRequest implements Serializable{
 
 	public String getCircleId() {
 		return circleId;
+	}
+	public void setCircleId(String circleId) {
+		this.circleId = circleId;
 	}
 
 	public void setCircleName(String circleId) {
@@ -452,7 +465,7 @@ public class MeterRequest implements Serializable{
 				+ ", systemTitle=" + systemTitle + ", blockCipherKey=" + blockCipherKey + ", authenticationKey="
 				+ authenticationKey + ", referencingName=" + referencingName + ", isWrapper=" + isWrapper + ", iec="
 				+ iec + ", serialPort=" + serialPort + ", connectionStatusConnInfo=" + connectionStatusConnInfo
-				+ ", vmMeterManufactureAutoId="+ vmMeterManufactureAutoId + "]";
+				+ ", vmMeterManufactureAutoId="+ vmMeterManufactureAutoId + ", meterAutoId=" +meterAutoId + "]";
 	}
 	 
 	 

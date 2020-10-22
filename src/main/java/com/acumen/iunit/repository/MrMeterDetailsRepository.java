@@ -22,5 +22,9 @@ public interface MrMeterDetailsRepository extends JpaRepository<MrMeterDetails, 
 
 	@Query("select meterSerialNumber from MrMeterDetails where connectionStatus=:connectionStatus")
 	public List<Object> findByconnectionStatus(String connectionStatus);
+	
+
+	@Query("from MrMeterDetails where autoid=:id")
+	public MrMeterDetails findByMeteAutoId(Long id);
 
 }
